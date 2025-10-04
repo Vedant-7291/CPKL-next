@@ -2,14 +2,15 @@ const BannerSection = () => {
   return (
     <section className="relative w-full bg-secondary-light">
       {/* Banner Container */}
-      <div className="relative w-full h-[90vh] min-h-[500px]">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: "url('./assets/Landing Site Banner.png')"
-          }}
-        ></div>
+      <div className="relative w-full h-[85vh] min-h-[500px] max-h-[800px]">
+        {/* Background Image - Updated approach */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img 
+            src="./assets/Landing Site Banner.png" 
+            alt="Sports World Banner"
+            className="w-full h-full object-cover"
+          />
+        </div>
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>

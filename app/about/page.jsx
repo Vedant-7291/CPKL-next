@@ -5,7 +5,31 @@ import PartnersSection from '../components/PartnersSection'
 const AboutPage = () => {
   return (
     <Layout>
-      <BannerSection />
+       <section className="relative w-full bg-secondary-light">
+      {/* Banner Container */}
+      <div className="relative w-full h-[75vh] min-h-[500px]">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: "url('./assets/Pages Banner imp.png')"
+          }}
+        ></div>
+        
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        
+        {/* Content */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center" style={{ fontFamily: 'var(--font-jaturat)' }}>
+            Welcome to Sports World
+          </h1>
+          <p className="text-primary text-base md:text-lg lg:text-xl mt-4 text-center max-w-2xl" style={{ fontFamily: 'var(--font-poppins)' }}>
+            Experience the thrill of sports like never before
+          </p>
+        </div>
+      </div>
+    </section>
       
       {/* About CPKL Section */}
       <section className="bg-white">
@@ -157,7 +181,7 @@ const AboutPage = () => {
             <img 
               src="./assets/1.png" 
               alt="CPKL Team" 
-              className="w-full h-auto max-h-64 sm:max-h-72 md:max-h-80 object-contain rounded-lg shadow-2xl" /* Changed to max-height and object-contain */
+              className="w-full h-auto max-h-80 sm:max-h-96 md:max-h-[28rem] lg:max-h-[32rem] object-contain rounded-lg shadow-2xl" /* Increased height significantly */
             />
           </div>
         </div>
