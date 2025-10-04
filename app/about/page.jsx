@@ -32,29 +32,29 @@ const AboutPage = () => {
         <div className="relative -mt-8 sm:-mt-10 md:-mt-12 lg:-mt-14 mx-auto max-w-6xl px-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {/* Image 1 */}
-            <div className="bg-white rounded-lg shadow-2xl p-2 sm:p-3 md:p-4 transform hover:scale-105 transition-transform duration-300 border-2 border-gray-200">
+            <div className="rounded-lg p-2 sm:p-3 md:p-4 transform hover:scale-105 transition-transform duration-300 ">
               <img 
-                src="./assets/floating-img-1.png" 
+                src="./assets/1.png" 
                 alt="CPKL Action 1" 
-                className="w-full h-24 sm:h-28 md:h-32 lg:h-36 object-cover rounded-md"
+                className="w-full h-24 sm:h-28 md:h-32 lg:h-56 object-cover rounded-md"
               />
             </div>
             
             {/* Image 2 */}
-            <div className="bg-white rounded-lg shadow-2xl p-2 sm:p-3 md:p-4 transform hover:scale-105 transition-transform duration-300 border-2 border-gray-200">
+            <div className=" rounded-lg p-2 sm:p-3 md:p-4 transform hover:scale-105 transition-transform duration-300 ">
               <img 
-                src="./assets/floating-img-2.png" 
+                src="./assets/2.png" 
                 alt="CPKL Action 2" 
-                className="w-full h-24 sm:h-28 md:h-32 lg:h-36 object-cover rounded-md"
+                className="w-full h-24 sm:h-28 md:h-32 lg:h-56 object-cover rounded-md"
               />
             </div>
             
             {/* Image 3 */}
-            <div className="bg-white rounded-lg shadow-2xl p-2 sm:p-3 md:p-4 transform hover:scale-105 transition-transform duration-300 border-2 border-gray-200">
+            <div className="rounded-lg p-2 sm:p-3 md:p-4 transform hover:scale-105 transition-transform duration-300 ">
               <img 
-                src="./assets/floating-img-3.png" 
+                src="./assets/1.png" 
                 alt="CPKL Action 3" 
-                className="w-full h-24 sm:h-28 md:h-32 lg:h-36 object-cover rounded-md"
+                className="w-full h-24 sm:h-28 md:h-32 lg:h-56 object-cover rounded-md"
               />
             </div>
           </div>
