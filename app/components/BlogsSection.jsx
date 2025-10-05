@@ -21,7 +21,8 @@ const BlogsSection = () => {
           {[1, 2, 3, 4, 5, 6].map((blog) => (
             <div key={blog} className="bg-[#29066d] rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col w-[90%] max-w-sm mx-auto h-96">
               <div className="h-48 bg-cover bg-center m-4 rounded-lg" style={{ backgroundImage: "url('./assets/Blog Img.png')" }}></div>
-              <div className="p-6 flex-grow flex flex-col">
+              <div className="p-6 pt-0 flex-grow flex flex-col">
+                <h1 className="text-white text-lg font-bold mb-2" style={{ fontFamily: 'var(--font-jaturat)' }}>Blog Title {blog}</h1>
                 <p className="text-white text-sm mb-4 flex-grow" style={{ fontFamily: 'var(--font-poppins)' }}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>

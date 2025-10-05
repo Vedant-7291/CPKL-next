@@ -4,7 +4,31 @@ import BannerSection from '../components/BannerSection'
 const ContactPage = () => {
   return (
     <Layout>
-      <BannerSection />
+       <section className="relative w-full bg-white">
+      {/* Banner Container */}
+      <div className="relative w-full h-[75vh] min-h-[500px]">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: "url('./assets/Pages Banner imp.png')"
+          }}
+        ></div>
+        
+        {/* Overlay */}
+        <div className="absolute "></div>
+        
+        {/* Content */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center" style={{ fontFamily: 'var(--font-jaturat)' }}>
+            Welcome to Sports World
+          </h1>
+          <p className="text-primary text-base md:text-lg lg:text-xl mt-4 text-center max-w-2xl" style={{ fontFamily: 'var(--font-poppins)' }}>
+            Experience the thrill of sports like never before
+          </p>
+        </div>
+      </div>
+    </section>
       
       {/* Main Contact Section */}
       <section className="py-12 bg-gray-50">
@@ -15,7 +39,7 @@ const ContactPage = () => {
             {/* Background Sections */}
             <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-10">
               {/* Left Side - 60% Dark Background */}
-              <div className="lg:col-span-6 bg-[#180444]"></div>
+              <div className="lg:col-span-6 bg-[#29066d]"></div>
               
               {/* Right Side - 40% Background Image */}
               <div className="lg:col-span-4 bg-cover bg-center" 

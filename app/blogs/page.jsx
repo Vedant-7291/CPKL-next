@@ -4,7 +4,7 @@ import BannerSection from '../components/BannerSection'
 const BlogPage = () => {
   return (
     <Layout>
-      <section className="relative w-full bg-secondary-light">
+      <section className="relative w-full bg-white">
       {/* Banner Container */}
       <div className="relative w-full h-[75vh] min-h-[500px]">
         {/* Background Image */}
@@ -16,7 +16,7 @@ const BlogPage = () => {
         ></div>
         
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="absolute "></div>
         
         {/* Content */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">

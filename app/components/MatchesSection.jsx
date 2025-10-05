@@ -1,7 +1,7 @@
 // MatchesSection.jsx
 const MatchesSection = () => {
   return (
-    <section className="py-20">
+    <section className="py-0 pt-20">
       {/* Section Heading - Outside the background */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <h2 className="text-3xl md:text-4xl text-center text-black-90 mb-4" style={{ fontFamily: 'var(--font-jaturat)' }}>
@@ -13,7 +13,7 @@ const MatchesSection = () => {
       {/* Background Section - Fixed to show full image */}
       <div className="relative bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ 
         backgroundImage: "url('./assets/Landing site match schedule bg img.png')",
-        minHeight: '80vh',
+        minHeight: '70vh',
         backgroundSize: '100% 100%',
         backgroundPosition: 'center center'
       }}>
@@ -23,7 +23,7 @@ const MatchesSection = () => {
             {/* Match 1 */}
             <div className="relative bg-[#29066d] rounded-lg shadow-lg overflow-hidden border-2 border-white w-full max-w-md">
               {/* Pattern on top with heading */}
-              <div className="h-14 bg-cover flex items-center justify-center" style={{ backgroundImage: "url('./assets/Match-1.png')" }}>
+              <div className="h-10 bg-cover flex items-center justify-center" style={{ backgroundImage: "url('./assets/Match-1.png')" }}>
                 <h3 className="text-xl text-black font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>Match 1</h3>
               </div>
               
@@ -77,7 +77,7 @@ const MatchesSection = () => {
             {/* Match 2 */}
             <div className="relative bg-[#29066d] rounded-lg shadow-lg overflow-hidden border-2 border-white w-full max-w-md">
               {/* Pattern on top with heading */}
-              <div className="h-14 bg-cover flex items-center justify-center" style={{ backgroundImage: "url('./assets/Match-1.png')" }}>
+              <div className="h-10 bg-cover flex items-center justify-center" style={{ backgroundImage: "url('./assets/Match-1.png')" }}>
                 <h3 className="text-xl text-black font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>Match 2</h3>
               </div>
               
