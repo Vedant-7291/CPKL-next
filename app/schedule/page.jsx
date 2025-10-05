@@ -5,32 +5,32 @@ const MatchSchedulePage = () => {
   const matches = [
     {
       id: 1,
-      team1: { name: 'Team Raiders', logo: './assets/team1-logo.png' },
-      team2: { name: 'Team Warriors', logo: './assets/team2-logo.png' },
+      team1: { name: 'Team Raiders', logo: './assets/logo CPKL.png' },
+      team2: { name: 'Team Warriors', logo: './assets/logo CPKL.png' },
       date: 'Monday - 30 Oct',
       time: '6:00 PM',
       stadium: 'Raipur Stadium'
     },
     {
       id: 2,
-      team1: { name: 'Team Titans', logo: './assets/team1-logo.png' },
-      team2: { name: 'Team Champions', logo: './assets/team2-logo.png' },
+      team1: { name: 'Team Titans', logo: './assets/logo CPKL.png' },
+      team2: { name: 'Team Champions', logo: './assets/logo CPKL.png' },
       date: 'Tuesday - 31 Oct',
       time: '7:30 PM',
       stadium: 'Bhilai Arena'
     },
     {
       id: 3,
-      team1: { name: 'Team Vikings', logo: './assets/team1-logo.png' },
-      team2: { name: 'Team Spartans', logo: './assets/team2-logo.png' },
+      team1: { name: 'Team Vikings', logo: './assets/logo CPKL.png' },
+      team2: { name: 'Team Spartans', logo: './assets/logo CPKL.png' },
       date: 'Wednesday - 1 Nov',
       time: '5:00 PM',
       stadium: 'Durg Sports Complex'
     },
     {
       id: 4,
-      team1: { name: 'Team Phoenix', logo: './assets/team1-logo.png' },
-      team2: { name: 'Team Dragons', logo: './assets/team2-logo.png' },
+      team1: { name: 'Team Phoenix', logo: './assets/logo CPKL.png' },
+      team2: { name: 'Team Dragons', logo: './assets/logo CPKL.png' },
       date: 'Thursday - 2 Nov',
       time: '8:00 PM',
       stadium: 'Naya Raipur Stadium'
@@ -48,12 +48,10 @@ const MatchSchedulePage = () => {
             }}
           ></div>
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center" style={{ fontFamily: 'var(--font-jaturat)' }}>
-              Match Schedule
+            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>
+              SCHEDULE
             </h1>
-            <p className="text-primary text-base md:text-lg lg:text-xl mt-4 text-center max-w-2xl" style={{ fontFamily: 'var(--font-poppins)' }}>
-              Don't miss any action - Check out all the upcoming matches
-            </p>
+           
           </div>
         </div>
       </section>
@@ -70,61 +68,64 @@ const MatchSchedulePage = () => {
 
       <section className="py-8 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-6">
+          <div className="space-y-8">
             {matches.map((match) => (
-              <div 
-                key={match.id}
-                className="bg-[#29066d] rounded-t-[30%] shadow-2xl overflow-hidden border-2 border-[#180444]"
-              >
-                <div className="p-6 md:p-8">
-                  <div className="flex flex-col lg:flex-row justify-between items-center">
-                    <div className="flex items-center space-x-4 md:space-x-8 mb-6 lg:mb-0">
-                      <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center border-2 border-[#180444] mb-2">
-                          <img 
-                            src={match.team1.logo} 
-                            alt={match.team1.name}
-                            className="w-12 h-12 md:w-16 md:h-16 object-contain"
-                          />
+              <div key={match.id} className="relative">
+                {/* White gap between cards */}
+                <div className="h-4 bg-white"></div>
+                
+                {/* Match card */}
+                <div className="bg-[#29066d] rounded-t-[30%] shadow-2xl overflow-hidden border-2 border-[#180444]">
+                  <div className="p-6 md:p-8">
+                    <div className="flex flex-col lg:flex-row justify-between items-center">
+                      <div className="flex items-center space-x-4 md:space-x-8 mb-6 lg:mb-0">
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 md:w-20 md:h-20  rounded-full flex items-center justify-center border-[#180444] mb-2">
+                            <img 
+                              src={match.team1.logo} 
+                              alt={match.team1.name}
+                              className="w-16 h-16 md:w-16 md:h-16 object-contain"
+                            />
+                          </div>
+                          <span className="text-white font-bold text-sm md:text-base text-center">
+                            {match.team1.name}
+                          </span>
                         </div>
-                        <span className="text-white font-bold text-sm md:text-base text-center">
-                          {match.team1.name}
-                        </span>
-                      </div>
 
-                      <div className="flex flex-col items-center">
-                        <div className="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-2 border-[#180444]">
-                          <span className="text-[#180444] font-extrabold text-lg md:text-xl">
-                            VS
+                        <div className="flex flex-col items-center">
+                          <div className="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center border-2 border-[#180444]">
+                            <span className="text-[#180444] font-extrabold text-lg md:text-xl">
+                              VS
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 md:w-20 md:h-20  rounded-full flex items-center justify-center border-[#180444] mb-2">
+                            <img 
+                              src={match.team2.logo} 
+                              alt={match.team2.name}
+                              className="w-16 h-16 md:w-16 md:h-16 object-contain"
+                            />
+                          </div>
+                          <span className="text-white font-bold text-sm md:text-base text-center">
+                            {match.team2.name}
                           </span>
                         </div>
                       </div>
 
-                      <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center border-2 border-[#180444] mb-2">
-                          <img 
-                            src={match.team2.logo} 
-                            alt={match.team2.name}
-                            className="w-12 h-12 md:w-16 md:h-16 object-contain"
-                          />
+                      <div className="flex flex-col items-center lg:items-end">
+                        <div className="text-white font-semibold text-lg md:text-xl mb-4 text-center lg:text-right">
+                          {match.date}
                         </div>
-                        <span className="text-white font-bold text-sm md:text-base text-center">
-                          {match.team2.name}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col items-center lg:items-end">
-                      <div className="text-white font-semibold text-lg md:text-xl mb-4 text-center lg:text-right">
-                        {match.date}
-                      </div>
-                      
-                      <div className="flex items-center border-b-2 border-[#180444] pb-2">
-                        <div className="text-white font-bold text-xl md:text-2xl pr-4 border-r-2 border-[#180444]">
-                          {match.time}
-                        </div>
-                        <div className="text-white font-semibold text-lg md:text-xl pl-4">
-                          {match.stadium}
+                        
+                        <div className="flex items-center border-b-2 border-[#180444] pb-2">
+                          <div className="text-white font-bold text-xl md:text-2xl pr-4 border-r-2 border-[#180444]">
+                            {match.time}
+                          </div>
+                          <div className="text-white font-semibold text-lg md:text-xl pl-4">
+                            {match.stadium}
+                          </div>
                         </div>
                       </div>
                     </div>

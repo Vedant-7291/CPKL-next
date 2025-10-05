@@ -16,7 +16,7 @@ const TeamsSection = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsToShow = 3; // Number of team members to show at once
+  const itemsToShow = 4; // Changed from 3 to 4 team members to show at once
 
   // Auto carousel with 3 second interval
   useEffect(() => {
@@ -59,7 +59,7 @@ const TeamsSection = () => {
           <div className="relative overflow-hidden px-8">
             {/* Carousel Track */}
             <motion.div 
-              className="flex gap-8"
+              className="flex gap-6" // Reduced gap from 8 to 6
               animate={{ x: `-${calculateTransform()}%` }}
               transition={{ 
                 type: "spring",
@@ -70,14 +70,14 @@ const TeamsSection = () => {
               {teams.map((team) => (
                 <motion.div
                   key={team.id}
-                  className="flex-shrink-0 w-[calc(33.333%-21px)]" // 33.333% for 3 items
+                  className="flex-shrink-0 w-[calc(25%-18px)]" // Changed to 25% for 4 items
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="p-3 rounded-lg hover:shadow-xl transition-shadow duration-300 h-full mx-1 overflow-hidden">
                     <img 
                       src={team.image} 
                       alt={`Team ${team.id}`}
-                      className="w-full h-96 object-cover rounded-md" // Increased to h-96 (24rem / 384px)
+                      className="w-full h-64 object-cover rounded-md" // Reduced from h-96 to h-64 (16rem / 256px)
                     />
                   </div>
                 </motion.div>

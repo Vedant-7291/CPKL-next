@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isContactOpen, setIsContactOpen] = useState(false)
   const pathname = usePathname()
 
   const navLinks = [
@@ -14,7 +15,11 @@ const Navbar = () => {
     { name: 'Schedule', href: '/schedule' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Blog', href: '/blogs' },
+  ]
+
+  const contactLinks = [
     { name: 'Contact', href: '/contact' },
+    { name: 'Registration', href: '/registration' },
   ]
 
   const leftLinks = navLinks.slice(0, 4)
@@ -23,6 +28,7 @@ const Navbar = () => {
   // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false)
+    setIsContactOpen(false)
   }, [pathname])
 
   const isActiveLink = (href) => {
@@ -79,6 +85,50 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
+              
+              {/* Contact Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsContactOpen(!isContactOpen)}
+                  className={`transition-colors duration-300 font-medium text-md px-2 py-1 rounded flex items-center ${
+                    isActiveLink('/contact') || isActiveLink('/registration')
+                      ? 'text-gray-300 font-semibold border-b-2 border-white'
+                      : 'text-white hover:text-gray-300'
+                  }`}
+                  style={{ fontFamily: 'var(--font-poppins)' }}
+                >
+                  Contact
+                  <svg 
+                    className={`ml-1 h-4 w-4 transition-transform ${isContactOpen ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {/* Dropdown Menu */}
+                {isContactOpen && (
+                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                    {contactLinks.map((link) => (
+                      <a
+                        key={link.name}
+                        href={link.href}
+                        className={`block px-4 py-2 text-sm ${
+                          isActiveLink(link.href)
+                            ? 'bg-gray-100 text-[#29066d] font-semibold'
+                            : 'text-gray-700 hover:bg-gray-100'
+                        }`}
+                        style={{ fontFamily: 'var(--font-poppins)' }}
+                        onClick={() => setIsContactOpen(false)}
+                      >
+                        {link.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Mobile menu button */}
@@ -112,6 +162,24 @@ const Navbar = () => {
                     {link.name}
                   </a>
                 ))}
+                
+                {/* Contact and Registration in mobile menu */}
+                <div className="border-t border-gray-600 pt-2 mt-2">
+                  {contactLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      className={`block px-3 py-2 text-sm font-medium rounded ${
+                        isActiveLink(link.href)
+                          ? 'text-white bg-white bg-opacity-10 font-semibold border-l-4 border-white'
+                          : 'text-white hover:text-gray-300 hover:bg-white hover:bg-opacity-5'
+                      }`}
+                      style={{ fontFamily: 'var(--font-poppins)' }}
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           )}

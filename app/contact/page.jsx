@@ -20,12 +20,10 @@ const ContactPage = () => {
         
         {/* Content */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center" style={{ fontFamily: 'var(--font-jaturat)' }}>
-            Welcome to Sports World
+          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>
+            CONTACT US
           </h1>
-          <p className="text-primary text-base md:text-lg lg:text-xl mt-4 text-center max-w-2xl" style={{ fontFamily: 'var(--font-poppins)' }}>
-            Experience the thrill of sports like never before
-          </p>
+         
         </div>
       </div>
     </section>
@@ -34,12 +32,12 @@ const ContactPage = () => {
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Big Center Div with 70vw width and split background */}
-          <div className="w-full max-w-[70vw] mx-auto rounded-2xl shadow-2xl overflow-hidden mb-16 relative min-h-[600px]">
+          <div className="w-full max-w-[70vw] mx-auto shadow-2xl overflow-hidden mb-16 relative min-h-[600px] rounded-tr-[100px]">
             
             {/* Background Sections */}
             <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-10">
               {/* Left Side - 60% Dark Background */}
-              <div className="lg:col-span-6 bg-[#29066d]"></div>
+              <div className="lg:col-span-6 bg-[#29066d] rounded-tr-[100px]"></div>
               
               {/* Right Side - 40% Background Image */}
               <div className="lg:col-span-4 bg-cover bg-center" 

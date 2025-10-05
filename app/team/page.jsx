@@ -21,12 +21,10 @@ const TeamsPage = () => {
         
         {/* Content */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center" style={{ fontFamily: 'var(--font-jaturat)' }}>
-            Welcome to Sports World
+          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>
+            TEAM
           </h1>
-          <p className="text-primary text-base md:text-lg lg:text-xl mt-4 text-center max-w-2xl" style={{ fontFamily: 'var(--font-poppins)' }}>
-            Experience the thrill of sports like never before
-          </p>
+          
         </div>
       </div>
     </section>
@@ -143,13 +141,7 @@ const TeamsPage = () => {
               </div>
               
               {/* Team Card 9 */}
-              <div className="bg-white rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 border-2 border-gray-200">
-                <img 
-                  src="./assets/logos/team-9.jpg" 
-                  alt="Team Bhilai Bulls" 
-                  className="w-full h-60 sm:h-68 md:h-72 lg:h-80 object-cover"
-                />
-              </div>
+              
             </div>
           </div>
         </div>

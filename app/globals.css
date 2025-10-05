@@ -4,17 +4,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import local Jaturat font */
+@font-face {
+  font-family: 'JaturatBold';
+  src: url('/assets/fonts/jaturat-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JaturatSemiBold';
+  src: url('/assets/fonts/jaturat-semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Galantic';
+  src: url('/assets/fonts/Galantic-Regular.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --font-jaturat-bold: 'JaturatBold', sans-serif;
+  --font-jaturat-semibold: 'JaturatSemiBold', sans-serif;
+  --font-jaturat-extrabold: 'JaturatExtraBold', sans-serif;
+  --font-galantic: 'Galantic', sans-serif;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Jaturat', sans-serif;
-  color: rgba(0, 0, 0, 0.9);
+
+@layer utilities {
+  .heading-bold {
+    font-family: var(--font-jaturat-bold);
+  }
+  .heading-semibold {
+    font-family: var(--font-jaturat-semibold);
+  }
+  .heading-extrabold {
+    font-family: var(--font-jaturat-extrabold);
+  }
+  .font-galantic {
+    font-family: var(--font-galantic);
+  }
 }

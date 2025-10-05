@@ -25,38 +25,37 @@ const PointsTablePage = () => {
   return (
     <Layout>
       <section className="relative w-full bg-white">
-      {/* Banner Container */}
-      <div className="relative w-full h-[75vh] min-h-[500px]">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: "url('./assets/Pages Banner imp.png')"
-          }}
-        ></div>
-        
-        {/* Overlay */}
-        <div className="absolute "></div>
-        
-        {/* Content */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center" style={{ fontFamily: 'var(--font-jaturat)' }}>
-            Welcome to Sports World
-          </h1>
-          <p className="text-primary text-base md:text-lg lg:text-xl mt-4 text-center max-w-2xl" style={{ fontFamily: 'var(--font-poppins)' }}>
-            Experience the thrill of sports like never before
-          </p>
+        {/* Banner Container */}
+        <div className="relative w-full h-[75vh] min-h-[500px]">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ 
+              backgroundImage: "url('./assets/Pages Banner imp.png')"
+            }}
+          ></div>
+          
+          {/* Content */}
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>
+              STANDINGS
+            </h1>
+            
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
       
       {/* Points Table Header Section with Logo */}
       <section className="bg-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center space-x-8">
-            {/* Big Logo */}
-            <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 bg-gray-200 rounded-xl flex items-center justify-center">
-              <span className="text-gray-500 text-sm">League Logo</span>
+            {/* Logo Image */}
+            <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-xl overflow-hidden">
+              <img 
+                src="./assets/logo CPKL.png" 
+                alt="League Logo" 
+                className="w-full h-full object-cover"
+              />
             </div>
             
             {/* Vertical Line */}
@@ -80,39 +79,39 @@ const PointsTablePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             {/* Table Header */}
-            <div className="grid grid-cols-12 gap-0 text-black text-sm md:text-base pb-1">
+            <div className="grid grid-cols-12 gap-0 text-black text-sm md:text-base pb-2">
               {/* Position Column */}
               <div className="col-span-1 bg-gray-400 py-4 px-2 text-center rounded-tl-2xl">
                 #
               </div>
               
               {/* Team Column */}
-              <div className="col-span-3 bg-gray-400 py-4 px-4 ">
+              <div className="col-span-3 bg-gray-400 py-4 px-4">
                 TEAM
               </div>
               
               {/* P Column */}
-              <div className="col-span-1 bg-gray-400 py-4 px-2 text-center ">
+              <div className="col-span-1 bg-gray-400 py-4 px-2 text-center">
                 P
               </div>
               
               {/* W Column */}
-              <div className="col-span-1 bg-gray-400 py-4 px-2 text-center ">
+              <div className="col-span-1 bg-gray-400 py-4 px-2 text-center">
                 W
               </div>
               
               {/* L Column */}
-              <div className="col-span-1 bg-gray-400 py-4 px-2 text-center ">
+              <div className="col-span-1 bg-gray-400 py-4 px-2 text-center">
                 L
               </div>
               
               {/* Score Diff Column */}
-              <div className="col-span-2 bg-gray-400 py-4 px-2 text-center ">
+              <div className="col-span-2 bg-gray-400 py-4 px-2 text-center">
                 SCORE DIFF
               </div>
               
               {/* Form Column */}
-              <div className="col-span-2 bg-gray-400 py-4 px-2 text-center ">
+              <div className="col-span-2 bg-gray-400 py-4 px-2 text-center">
                 FORM
               </div>
               
@@ -122,58 +121,59 @@ const PointsTablePage = () => {
               </div>
             </div>
 
-            {/* Table Rows */}
+            {/* Table Rows with White Gaps */}
             {teams.map((team, index) => (
-              <div 
-                key={team.position}
-                className={`grid grid-cols-12 gap-0 text-white text-sm md:text-base ${
-                  index !== teams.length - 1 ? 'border-b border-purple-700' : ''
-                }`}
-              >
-                {/* Position */}
-                <div className="col-span-1 bg-[#180444] py-4 px-2 text-center font-bold border-r border-purple-800">
-                  {team.position}
-                </div>
+              <div key={team.position}>
+                {/* White Gap between rows */}
+                {index > 0 && <div className="h-1 bg-white"></div>}
                 
-                {/* Team Name */}
-                <div className="col-span-3 bg-[#29066d] py-4 px-4 border-r border-purple-800 font-medium">
-                  {team.name}
-                </div>
-                
-                {/* Played */}
-                <div className="col-span-1 bg-[#180444] py-4 px-2 text-center border-r border-purple-800">
-                  {team.played}
-                </div>
-                
-                {/* Won */}
-                <div className="col-span-1 bg-[#180444] py-4 px-2 text-center border-r border-purple-800">
-                  {team.won}
-                </div>
-                
-                {/* Lost */}
-                <div className="col-span-1 bg-[#180444] py-4 px-2 text-center border-r border-purple-800">
-                  {team.lost}
-                </div>
-                
-                {/* Score Difference */}
-                <div className="col-span-2 bg-[#180444] py-4 px-2 text-center border-r border-purple-800 font-medium">
-                  {team.scoreDiff}
-                </div>
-                
-                {/* Form */}
-                <div className="col-span-2 bg-[#180444] py-4 px-2 text-center border-r border-purple-800">
-                  <div className="flex justify-center space-x-1">
-                    {team.form.map((result, idx) => (
-                      <div key={idx}>
-                        {getFormIcon(result)}
-                      </div>
-                    ))}
+                {/* Team Row */}
+                <div className={`grid grid-cols-12 gap-0 text-white text-sm md:text-base`}>
+                  {/* Position */}
+                  <div className="col-span-1 bg-[#180444] py-4 px-2 text-center font-bold border-r border-purple-800">
+                    {team.position}
                   </div>
-                </div>
-                
-                {/* Points */}
-                <div className="col-span-1 bg-[#180444] py-4 px-2 text-center font-bold">
-                  {team.points}
+                  
+                  {/* Team Name */}
+                  <div className="col-span-3 bg-[#29066d] py-4 px-4 border-r border-purple-800 font-medium">
+                    {team.name}
+                  </div>
+                  
+                  {/* Played */}
+                  <div className="col-span-1 bg-[#180444] py-4 px-2 text-center border-r border-purple-800">
+                    {team.played}
+                  </div>
+                  
+                  {/* Won */}
+                  <div className="col-span-1 bg-[#180444] py-4 px-2 text-center border-r border-purple-800">
+                    {team.won}
+                  </div>
+                  
+                  {/* Lost */}
+                  <div className="col-span-1 bg-[#180444] py-4 px-2 text-center border-r border-purple-800">
+                    {team.lost}
+                  </div>
+                  
+                  {/* Score Difference */}
+                  <div className="col-span-2 bg-[#180444] py-4 px-2 text-center border-r border-purple-800 font-medium">
+                    {team.scoreDiff}
+                  </div>
+                  
+                  {/* Form */}
+                  <div className="col-span-2 bg-[#180444] py-4 px-2 text-center border-r border-purple-800">
+                    <div className="flex justify-center space-x-1">
+                      {team.form.map((result, idx) => (
+                        <div key={idx}>
+                          {getFormIcon(result)}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Points */}
+                  <div className="col-span-1 bg-[#180444] py-4 px-2 text-center font-bold">
+                    {team.points}
+                  </div>
                 </div>
               </div>
             ))}
