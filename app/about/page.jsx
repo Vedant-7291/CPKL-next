@@ -26,9 +26,9 @@ const AboutPage = () => {
           {/* Overlay */}
           <div className="absolute "></div>
           
-          {/* Content */}
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold font-jaturat">
+          {/* Content - Shifted upwards */}
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 transform -translate-y-8">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold font-main">
               ABOUT US
             </h1>
           </div>
@@ -36,25 +36,34 @@ const AboutPage = () => {
       </section>
       
       {/* About CPKL Section */}
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <section className="bg-white pb-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-jaturat text-black-90 mb-6 md:mb-8">
-              About CPKL
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-main text-black-90 mb-4 md:mb-6">
+              Local Roots to Global Heights
             </h2>
-            <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed font-poppins">
-              CPKL (Chhattisgarh Premier Kabaddi League) is a professional kabaddi league that brings together 
-              the most talented players from across the region. We are committed to promoting kabaddi as a sport 
-              and providing a platform for athletes to showcase their skills at the highest level.
-            </p>
+            <div className="text-base sm:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed font-sub space-y-4">
+              <p>
+                The Canvi Premier Kabaddi League (CPKL), founded by Canvi Sports Federation, is a professional franchise-based kabaddi league with one mission: to nurture India's raw talent and bring kabaddi to the global stage.
+              </p>
+              <p>
+                <strong>Season 1 (2023–24):</strong> Conducted successfully in India, uniting hundreds of athletes from across the nation.
+              </p>
+              <p>
+                <strong>Season 2 (2025):</strong> Now stepping into Dubai, CPKL combines the soul of Indian kabaddi with the glamour of an international sporting arena.
+              </p>
+              <p>
+                With world-class players, elite franchises, and thrilling competition, CPKL is more than a league. It's a movement to make kabaddi a global spectacle.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Image Container Section - Equal white and purple background */}
+      {/* Image Container Section - Reduced gap between content and images */}
       <div className="relative">
-        {/* First Div - White Background with bottom margin for images */}
-        <div className="bg-white h-40 sm:h-44 md:h-48 lg:h-52"></div>
+        {/* First Div - White Background with REDUCED height */}
+        <div className="bg-white h-24 sm:h-28 md:h-32 lg:h-36"></div>
         
         {/* Images Container - Centered between white and purple */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl px-4">
@@ -88,8 +97,8 @@ const AboutPage = () => {
           </div>
         </div>
 
-        {/* Second Div - Purple Background */}
-        <div className="bg-[#29066d] h-40 sm:h-44 md:h-48 lg:h-52"></div>
+        {/* Second Div - Purple Background with REDUCED height */}
+        <div className="bg-[#29066d] h-24 sm:h-28 md:h-32 lg:h-36"></div>
       </div>
 
       {/* Main Purple Content Section */}
@@ -100,12 +109,9 @@ const AboutPage = () => {
             {/* Mission Section */}
             <div className="flex flex-col lg:flex-row items-center gap-6 md:gap-8 lg:gap-12 mb-12 md:mb-16 lg:mb-20">
               <div className="lg:w-1/2">
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-jaturat text-white mb-4 sm:mb-6">Our Mission</h3>
-                <p className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed font-poppins">
-                  To revolutionize kabaddi in Chhattisgarh by creating a sustainable ecosystem that nurtures 
-                  local talent, promotes healthy competition, and brings world-class kabaddi entertainment 
-                  to fans across the state and beyond. We aim to build a platform where young athletes can 
-                  realize their potential and kabaddi enthusiasts can experience the thrill of professional sports.
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-main text-white mb-4 sm:mb-6">Our Mission</h3>
+                <p className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed font-sub italic">
+                  "To create a world-class kabaddi ecosystem that nurtures raw talent, celebrates legends, and inspires communities by taking India's traditional sport to global arenas."
                 </p>
               </div>
               <div className="lg:w-1/2 mt-6 lg:mt-0">
@@ -120,12 +126,9 @@ const AboutPage = () => {
             {/* Vision Section */}
             <div className="flex flex-col lg:flex-row-reverse items-center gap-6 md:gap-8 lg:gap-12">
               <div className="lg:w-1/2">
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-jaturat text-white mb-4 sm:mb-6">Our Vision</h3>
-                <p className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed font-poppins">
-                  To establish CPKL as the premier kabaddi league in India, recognized for its excellence in 
-                  sports management, player development, and fan engagement while contributing to the growth 
-                  of kabaddi as an Olympic sport. We envision a future where Chhattisgarh becomes the hub of 
-                  kabaddi excellence, producing world-class players and setting new standards in sports administration.
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-main text-white mb-4 sm:mb-6">Our Vision</h3>
+                <p className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed font-sub italic">
+                  "To establish kabaddi as a truly international sport, with CPKL as its premier stage — uniting players, fans, and nations through the spirit of strength, skill, and sportsmanship."
                 </p>
               </div>
               <div className="lg:w-1/2 mt-6 lg:mt-0">
@@ -143,16 +146,16 @@ const AboutPage = () => {
       {/* Tagline and Join Us Section */}
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-jaturat text-black-90 mb-4 md:mb-6">
+          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-main text-black-90 mb-4 md:mb-6">
             Building Champions, Creating Legends
           </h3>
-          <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 md:mb-8 max-w-2xl mx-auto font-poppins">
+          <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 md:mb-8 max-w-2xl mx-auto font-sub">
             Join us in our journey to transform kabaddi and create a lasting legacy in sports. 
             Be part of the revolution that's changing the face of kabaddi in India.
           </p>
           <button 
             onClick={handleJoinUsClick}
-            className="bg-secondary-light text-white px-5 sm:px-6 md:px-8 py-2 md:py-3 rounded-lg hover:bg-secondary-dark transition-colors duration-300 font-poppins text-sm sm:text-base md:text-lg font-semibold cursor-pointer"
+            className="bg-secondary-light text-white px-5 sm:px-6 md:px-8 py-2 md:py-3 rounded-lg hover:bg-secondary-dark transition-colors duration-300 font-sub text-sm sm:text-base md:text-lg font-semibold cursor-pointer"
           >
             Join Us Now
           </button>
@@ -185,7 +188,7 @@ const AboutPage = () => {
               <div className="lg:w-2/5 flex items-stretch">
                 <div className="w-full h-full flex items-center justify-center">
                   <img 
-                    src="./assets/Founders img.png" 
+                    src="./assets/Founder.png" 
                     alt="CPKL Team" 
                     className="w-full h-full max-h-[600px] object-cover rounded-2xl shadow-2xl"
                   />
@@ -195,26 +198,26 @@ const AboutPage = () => {
               {/* Text Content Section - Founder's Note */}
               <div className="lg:w-3/5 text-white flex items-center">
                 <div className="w-full p-4 sm:p-6 md:p-8 rounded-lg">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-jaturat mb-4 sm:mb-6 text-white text-left font-bold">
-                    " Founder Note
+                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-main mb-4 sm:mb-6 text-white text-left font-bold">
+                    Founder's Note
                   </h3>
-                  <div className="space-y-4 sm:space-y-6 font-poppins text-sm sm:text-base md:text-lg leading-relaxed">
+                  <div className="space-y-4 sm:space-y-6 font-sub text-sm sm:text-base md:text-lg leading-relaxed">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                      The Federation was founded by <strong>Mr. Shiv Kumar Beniwal</strong>, a visionary leader with a deep passion for kabaddi and sports development. His mission has been to create professional pathways for players from rural and urban India.
                     </p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                      Under his guidance, CPKL successfully launched its inaugural season in India, and now prepares for Season 2 in Dubai, the first major step in taking kabaddi beyond India's borders.
                     </p>
                     <p>
-                      Doloremque laudantium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                      His vision extends to bringing global recognition to kabaddi by staging professional leagues like CPKL, ensuring that transparency, fair play, and opportunity remain at the heart of the league.
                     </p>
                   </div>
-                  <div className="mt-6 sm:mt-8 text-center">
-                    <p className="font-bold text-lg sm:text-xl md:text-2xl font-jaturat text-left">
-                      Founder's Name
+                  <div className="mt-6 sm:mt-8 text-left">
+                    <p className="font-bold text-lg sm:text-xl md:text-2xl font-main">
+                      Mr. Shiv Kumar Beniwal
                     </p>
-                    <p className="text-sm sm:text-base md:text-lg font-poppins text-left ">
-                      Founder, CPKL
+                    <p className="text-sm sm:text-base md:text-lg font-sub">
+                      Founder, Canvi Sports Federation & CPKL
                     </p>
                   </div>
                 </div>
@@ -224,6 +227,96 @@ const AboutPage = () => {
         </div>
       </section>
 
+                           {/* Our Management Section */}
+      <section className="bg-white py-8 md:py-12 lg:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Heading */}
+          <div className="text-center mb-6 md:mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-main text-black-90 font-bold">
+              Our Management
+            </h2>
+          </div>
+
+          {/* Management Grid - 2x2 layout with reduced gap */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto">
+            {/* Management Member 1 */}
+            <div className="text-center">
+              <div>
+                <img 
+                  src="./assets/management/1.png" 
+                  alt="Management Member 1" 
+                  className="w-48 h-52 md:w-56 md:h-60 lg:w-64 lg:h-68 xl:w-72 xl:h-76 mx-auto object-fill rounded-t-lg shadow-lg"
+                />
+              </div>
+              <div className="bg-[#180444] rounded-b-lg p-3 md:p-4 w-48 md:w-56 lg:w-64 xl:w-72 mx-auto">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+                  Member Name 1
+                </h3>
+                <p className="text-sm md:text-base text-gray-300 font-sub">
+                  Designation/Role
+                </p>
+              </div>
+            </div>
+
+            {/* Management Member 2 */}
+            <div className="text-center">
+              <div>
+                <img 
+                  src="./assets/management/2.png" 
+                  alt="Management Member 2" 
+                  className="w-48 h-52 md:w-56 md:h-60 lg:w-64 lg:h-68 xl:w-72 xl:h-76 mx-auto object-fill rounded-t-lg shadow-lg"
+                />
+              </div>
+              <div className="bg-[#180444] rounded-b-lg p-3 md:p-4 w-48 md:w-56 lg:w-64 xl:w-72 mx-auto">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+                  Member Name 2
+                </h3>
+                <p className="text-sm md:text-base text-gray-300 font-sub">
+                  Designation/Role
+                </p>
+              </div>
+            </div>
+
+            {/* Management Member 3 */}
+            <div className="text-center">
+              <div>
+                <img 
+                  src="./assets/management/3.png" 
+                  alt="Management Member 3" 
+                  className="w-48 h-52 md:w-56 md:h-60 lg:w-64 lg:h-68 xl:w-72 xl:h-76 mx-auto object-fill rounded-t-lg shadow-lg"
+                />
+              </div>
+              <div className="bg-[#180444] rounded-b-lg p-3 md:p-4 w-48 md:w-56 lg:w-64 xl:w-72 mx-auto">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+                  Member Name 3
+                </h3>
+                <p className="text-sm md:text-base text-gray-300 font-sub">
+                  Designation/Role
+                </p>
+              </div>
+            </div>
+
+            {/* Management Member 4 */}
+            <div className="text-center">
+              <div>
+                <img 
+                  src="./assets/management/4.png" 
+                  alt="Management Member 4" 
+                  className="w-48 h-52 md:w-56 md:h-60 lg:w-64 lg:h-68 xl:w-72 xl:h-76 mx-auto object-fill rounded-t-lg shadow-lg"
+                />
+              </div>
+              <div className="bg-[#180444] rounded-b-lg p-3 md:p-4 w-48 md:w-56 lg:w-64 xl:w-72 mx-auto">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+                  Member Name 4
+                </h3>
+                <p className="text-sm md:text-base text-gray-300 font-sub">
+                  Designation/Role
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Partners Section */}
       <PartnersSection />
     </Layout>

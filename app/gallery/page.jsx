@@ -40,6 +40,17 @@ const GalleryPage = () => {
       './assets/1.png',
       './assets/2.png',
       './assets/1.png'
+    ],
+    pastSeason: [
+      './assets/1.png',
+      './assets/2.png',
+      './assets/1.png',
+      './assets/2.png',
+      './assets/1.png',
+      './assets/2.png',
+      './assets/1.png',
+      './assets/2.png',
+      './assets/1.png'
     ]
   };
 
@@ -51,7 +62,7 @@ const GalleryPage = () => {
   };
 
   const getButtonClass = (category) => {
-    const baseClass = "px-10 py-4 font-semibold rounded-lg border-2 border-[#180444] transition-colors duration-300 shadow-md text-lg w-full sm:w-auto";
+    const baseClass = "px-8 py-1 font-semibold rounded-lg border-2 border-[#180444] transition-colors duration-300 shadow-md text-base w-full sm:w-auto";
     if (activeCategory === category) {
       return `${baseClass} bg-[#180444] text-white`;
     } else {
@@ -62,28 +73,27 @@ const GalleryPage = () => {
   return (
     <Layout>
       <section className="relative w-full bg-white">
-      {/* Banner Container */}
-      <div className="relative w-full h-[75vh] min-h-[500px]">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: "url('./assets/Pages Banner imp.png')"
-          }}
-        ></div>
-        
-        {/* Overlay */}
-        <div className="absolute "></div>
-        
-        {/* Content */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>
-            GALLERY
-          </h1>
-         
+        {/* Banner Container */}
+        <div className="relative w-full h-[75vh] min-h-[500px]">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ 
+              backgroundImage: "url('./assets/Pages Banner imp.png')"
+            }}
+          ></div>
+          
+          {/* Overlay */}
+          <div className="absolute "></div>
+          
+          {/* Content - Shifted upwards */}
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 transform -translate-y-8">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold font-galantic">
+              GALLERY
+            </h1>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
       
       {/* Gallery Header Section */}
       <section className="bg-white py-12 md:py-16">
@@ -101,10 +111,10 @@ const GalleryPage = () => {
         </div>
       </section>
 
-      {/* Three Category Buttons */}
+      {/* Four Category Buttons */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8 md:space-x-12 lg:space-x-16">
+          <div className="grid grid-cols-2 sm:flex sm:flex-row justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12">
             {/* Auction Button */}
             <button 
               onClick={() => handleButtonClick('auction')}
@@ -127,6 +137,14 @@ const GalleryPage = () => {
               className={getButtonClass('team')}
             >
               Team
+            </button>
+
+            {/* Past Season Button */}
+            <button 
+              onClick={() => handleButtonClick('pastSeason')}
+              className={getButtonClass('pastSeason')}
+            >
+              Past Season
             </button>
           </div>
         </div>

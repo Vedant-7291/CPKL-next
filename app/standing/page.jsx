@@ -2,29 +2,31 @@ import Layout from '../components/Layout'
 import BannerSection from '../components/BannerSection'
 
 const PointsTablePage = () => {
-  // Sample team data
+  // Updated team data with new names and zero values
   const teams = [
-    { position: 1, name: "Raipur Raiders", played: 7, won: 6, lost: 1, scoreDiff: "+45", form: ["W", "W", "L", "W", "W"], points: 12 },
-    { position: 2, name: "Bilaspur Warriors", played: 7, won: 5, lost: 2, scoreDiff: "+32", form: ["W", "L", "W", "W", "W"], points: 10 },
-    { position: 3, name: "Durg Defenders", played: 7, won: 5, lost: 2, scoreDiff: "+28", form: ["W", "W", "W", "L", "W"], points: 10 },
-    { position: 4, name: "Rajnandgaon Royals", played: 7, won: 4, lost: 3, scoreDiff: "+18", form: ["L", "W", "W", "W", "L"], points: 8 },
-    { position: 5, name: "Korba Kings", played: 7, won: 3, lost: 4, scoreDiff: "+5", form: ["W", "L", "L", "W", "W"], points: 6 },
-    { position: 6, name: "Raigarh Riders", played: 7, won: 2, lost: 5, scoreDiff: "-12", form: ["L", "L", "W", "L", "W"], points: 4 },
-    { position: 7, name: "Jagdalpur Jaguars", played: 7, won: 1, lost: 6, scoreDiff: "-25", form: ["L", "L", "L", "W", "L"], points: 2 },
-    { position: 8, name: "Ambikapur Avengers", played: 7, won: 0, lost: 7, scoreDiff: "-91", form: ["L", "L", "L", "L", "L"], points: 0 }
+    { position: 1, name: "MP Titans", played: 0, won: 0, lost: 0, scoreDiff: "+0", form: ["-", "-", "-", "-", "-"], points: 0 },
+    { position: 2, name: "Haryana Heroes", played: 0, won: 0, lost: 0, scoreDiff: "+0", form: ["-", "-", "-", "-", "-"], points: 0 },
+    { position: 3, name: "Gujarat Gladiators", played: 0, won: 0, lost: 0, scoreDiff: "+0", form: ["-", "-", "-", "-", "-"], points: 0 },
+    { position: 4, name: "Dhakad Delhi", played: 0, won: 0, lost: 0, scoreDiff: "+0", form: ["-", "-", "-", "-", "-"], points: 0 },
+    { position: 5, name: "Mumbai Monarchs", played: 0, won: 0, lost: 0, scoreDiff: "+0", form: ["-", "-", "-", "-", "-"], points: 0 },
+    { position: 6, name: "Rajasthan Rebels", played: 0, won: 0, lost: 0, scoreDiff: "+0", form: ["-", "-", "-", "-", "-"], points: 0 },
+    { position: 7, name: "Kolkata Kings", played: 0, won: 0, lost: 0, scoreDiff: "+0", form: ["-", "-", "-", "-", "-"], points: 0 },
+    { position: 8, name: "Dabang UP", played: 0, won: 0, lost: 0, scoreDiff: "+0", form: ["-", "-", "-", "-", "-"], points: 0 }
   ];
 
   const getFormIcon = (result) => {
     if (result === "W") {
       return <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold">W</div>;
-    } else {
+    } else if (result === "L") {
       return <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold">L</div>;
+    } else {
+      return <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center text-white text-xs font-bold">-</div>;
     }
   };
 
   return (
     <Layout>
-      <section className="relative w-full bg-white">
+       <section className="relative w-full bg-white">
         {/* Banner Container */}
         <div className="relative w-full h-[75vh] min-h-[500px]">
           {/* Background Image */}
@@ -35,12 +37,14 @@ const PointsTablePage = () => {
             }}
           ></div>
           
-          {/* Content */}
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>
+          {/* Overlay */}
+          <div className="absolute "></div>
+          
+          {/* Content - Shifted upwards */}
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 transform -translate-y-8">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold font-galantic">
               STANDINGS
             </h1>
-            
           </div>
         </div>
       </section>

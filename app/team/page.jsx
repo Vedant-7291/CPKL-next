@@ -5,29 +5,28 @@ import PartnersSection from '../components/PartnersSection'
 const TeamsPage = () => {
   return (
     <Layout>
-       <section className="relative w-full bg-white">
-      {/* Banner Container */}
-      <div className="relative w-full h-[75vh] min-h-[500px]">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: "url('./assets/Pages Banner imp.png')"
-          }}
-        ></div>
-        
-        {/* Overlay */}
-        <div className="absolute "></div>
-        
-        {/* Content */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>
-            TEAM
-          </h1>
+      <section className="relative w-full bg-white">
+        {/* Banner Container */}
+        <div className="relative w-full h-[75vh] min-h-[500px]">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ 
+              backgroundImage: "url('./assets/Pages Banner imp.png')"
+            }}
+          ></div>
           
+          {/* Overlay */}
+          <div className="absolute "></div>
+          
+          {/* Content - Shifted upwards */}
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 transform -translate-y-8">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold font-galantic">
+              TEAMS
+            </h1>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
       
       {/* Our Teams Heading Section */}
       <section className="bg-white py-12 md:py-16 ">

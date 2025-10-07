@@ -5,44 +5,43 @@ const ContactPage = () => {
   return (
     <Layout>
        <section className="relative w-full bg-white">
-      {/* Banner Container */}
-      <div className="relative w-full h-[75vh] min-h-[500px]">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: "url('./assets/Pages Banner imp.png')"
-          }}
-        ></div>
-        
-        {/* Overlay */}
-        <div className="absolute "></div>
-        
-        {/* Content */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>
-            CONTACT US
-          </h1>
-         
+        {/* Banner Container */}
+        <div className="relative w-full h-[75vh] min-h-[500px]">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ 
+              backgroundImage: "url('./assets/Pages Banner imp.png')"
+            }}
+          ></div>
+          
+          {/* Overlay */}
+          <div className="absolute "></div>
+          
+          {/* Content - Shifted upwards */}
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 transform -translate-y-8">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold font-galantic">
+              CONTACT US
+            </h1>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
       
       {/* Main Contact Section */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Big Center Div with 70vw width and split background */}
-          <div className="w-full max-w-[70vw] mx-auto shadow-2xl overflow-hidden mb-16 relative min-h-[600px] rounded-tr-[100px]">
+          <div className="w-full max-w-[70vw] mx-auto overflow-hidden mb-16 relative min-h-[600px]">
             
             {/* Background Sections */}
             <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-10">
               {/* Left Side - 60% Dark Background */}
-              <div className="lg:col-span-6 bg-[#29066d] rounded-tr-[100px]"></div>
+              <div className="lg:col-span-6 bg-[#29066d]"></div>
               
-              {/* Right Side - 40% Background Image */}
-              <div className="lg:col-span-4 bg-cover bg-center" 
+              {/* Right Side - 40% Background Image with top-right border radius */}
+              <div className="lg:col-span-4 bg-cover bg-center rounded-tr-[100px]" 
                    style={{ backgroundImage: "url('./assets/contact.png')" }}>
-                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-tr-[100px]"></div>
               </div>
             </div>
 

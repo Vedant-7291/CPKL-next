@@ -40,18 +40,24 @@ const MatchSchedulePage = () => {
   return (
     <Layout>
       <section className="relative w-full bg-white">
+        {/* Banner Container */}
         <div className="relative w-full h-[75vh] min-h-[500px]">
+          {/* Background Image */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ 
               backgroundImage: "url('./assets/Pages Banner imp.png')"
             }}
           ></div>
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>
+          
+          {/* Overlay */}
+          <div className="absolute "></div>
+          
+          {/* Content - Shifted upwards */}
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 transform -translate-y-8">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold font-galantic">
               SCHEDULE
             </h1>
-           
           </div>
         </div>
       </section>
@@ -75,7 +81,7 @@ const MatchSchedulePage = () => {
                 <div className="h-4 bg-white"></div>
                 
                 {/* Match card */}
-                <div className="bg-[#29066d] rounded-t-[30%] shadow-2xl overflow-hidden border-2 border-[#180444]">
+                <div className="bg-[#29066d] rounded-t-[20px] shadow-2xl overflow-hidden border-2 border-[#180444]">
                   <div className="p-6 md:p-8">
                     <div className="flex flex-col lg:flex-row justify-between items-center">
                       <div className="flex items-center space-x-4 md:space-x-8 mb-6 lg:mb-0">
@@ -119,11 +125,11 @@ const MatchSchedulePage = () => {
                           {match.date}
                         </div>
                         
-                        <div className="flex items-center border-b-2 border-[#180444] pb-2">
-                          <div className="text-white font-bold text-xl md:text-2xl pr-4 border-r-2 border-[#180444]">
+                        <div className="flex flex-col items-center lg:items-end">
+                          <div className="text-white font-bold text-xl md:text-2xl mb-2">
                             {match.time}
                           </div>
-                          <div className="text-white font-semibold text-lg md:text-xl pl-4">
+                          <div className="text-white font-semibold text-lg md:text-xl">
                             {match.stadium}
                           </div>
                         </div>

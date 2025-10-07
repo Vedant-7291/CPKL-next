@@ -1,6 +1,7 @@
 // MatchesSection.jsx
 'use client';
 import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
 
 const MatchesSection = () => {
   const matches = [
@@ -35,11 +36,107 @@ const MatchesSection = () => {
       teamB: "Team H",
       date: "THURSDAY - 2 NOV 7:00 PM",
       venue: "City Sports Complex"
+    },
+    {
+      id: 5,
+      title: "Match 5",
+      teamA: "Team I",
+      teamB: "Team J",
+      date: "FRIDAY - 3 NOV 4:00 PM",
+      venue: "Sports Arena Delhi"
+    },
+    {
+      id: 6,
+      title: "Match 6",
+      teamA: "Team K",
+      teamB: "Team L",
+      date: "SATURDAY - 4 NOV 8:00 PM",
+      venue: "Mumbai Ground"
+    },
+    {
+      id: 7,
+      title: "Match 7",
+      teamA: "Team M",
+      teamB: "Team N",
+      date: "SUNDAY - 5 NOV 2:00 PM",
+      venue: "Chennai Stadium"
+    },
+    {
+      id: 8,
+      title: "Match 8",
+      teamA: "Team O",
+      teamB: "Team P",
+      date: "MONDAY - 6 NOV 6:30 PM",
+      venue: "Kolkata Arena"
+    },
+    {
+      id: 9,
+      title: "Quarter Final 1",
+      teamA: "Winner A",
+      teamB: "Winner B",
+      date: "TUESDAY - 7 NOV 5:00 PM",
+      venue: "National Stadium"
+    },
+    {
+      id: 10,
+      title: "Quarter Final 2",
+      teamA: "Winner C",
+      teamB: "Winner D",
+      date: "WEDNESDAY - 8 NOV 7:00 PM",
+      venue: "City Sports Complex"
+    },
+    {
+      id: 11,
+      title: "Semi Final 1",
+      teamA: "QF Winner 1",
+      teamB: "QF Winner 2",
+      date: "FRIDAY - 10 NOV 6:00 PM",
+      venue: "ABC Stadium XYZ"
+    },
+    {
+      id: 12,
+      title: "Semi Final 2",
+      teamA: "QF Winner 3",
+      teamB: "QF Winner 4",
+      date: "SATURDAY - 11 NOV 8:00 PM",
+      venue: "XYZ Arena Center"
+    },
+    {
+      id: 13,
+      title: "GRAND FINALE",
+      teamA: "SF Winner 1",
+      teamB: "SF Winner 2",
+      date: "SUNDAY - 12 NOV 7:00 PM",
+      venue: "National Stadium"
     }
   ];
 
-  // Duplicate matches for seamless looping
-  const allMatches = [...matches, ...matches];
+  const scrollContainerRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const scrollToIndex = (index) => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const cardWidth = 320; // Width of each match card including gap
+      const scrollPosition = index * cardWidth;
+      
+      container.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+      setCurrentIndex(index);
+    }
+  };
+
+  const scrollNext = () => {
+    const nextIndex = (currentIndex + 1) % matches.length;
+    scrollToIndex(nextIndex);
+  };
+
+  const scrollPrev = () => {
+    const prevIndex = (currentIndex - 1 + matches.length) % matches.length;
+    scrollToIndex(prevIndex);
+  };
 
   return (
     <section className="py-0 pt-20">
@@ -61,30 +158,24 @@ const MatchesSection = () => {
         <div className="absolute"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
           <div className="flex justify-center">
-            <div className="relative w-full overflow-hidden">
+            <div className="relative w-full">
               {/* Scrolling Container */}
-              <motion.div
-                className="flex gap-8"
-                animate={{
-                  x: ['0%', '-50%'] // Move by half the total width for seamless loop
-                }}
-                transition={{
-                  x: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 20,
-                    ease: "linear",
-                  },
-                }}
+              <div 
+                ref={scrollContainerRef}
+                className="flex gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
-                {allMatches.map((match, index) => (
+                {matches.map((match, index) => (
                   <motion.div 
-                    key={`${match.id}-${index}`}
-                    className="flex-shrink-0 relative bg-[#29066d] rounded-lg shadow-lg overflow-hidden border-2 border-white w-80"
-                   
+                    key={match.id}
+                    className="flex-shrink-0 relative bg-[#29066d] rounded-lg shadow-lg overflow-hidden border-2 border-white w-80 snap-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
                   >
-                    {/* Pattern on top with heading */}
-                    <div className="h-5 bg-cover flex items-center justify-center" style={{ backgroundImage: "url('./assets/Match-1.png')" }}>
+                    {/* Pattern on top with heading - Adjusted height */}
+                    <div className="h-12 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('./assets/Match-1.png')" }}>
                       <h3 className="text-xl text-black font-bold" style={{ fontFamily: 'var(--font-jaturat)' }}>{match.title}</h3>
                     </div>
                     
@@ -94,7 +185,7 @@ const MatchesSection = () => {
                         <div className="flex flex-col items-center flex-1">
                           <motion.div 
                             className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-2"
-                            
+                            whileHover={{ scale: 1.1 }}
                           >
                             <img 
                               src="./assets/Logo CPKL.png" 
@@ -109,14 +200,7 @@ const MatchesSection = () => {
                         <div className="mx-2 flex items-center justify-center relative">
                           <motion.div 
                             className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-300 relative z-10"
-                            animate={{
-                              scale: [1, 1.1, 1],
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              ease: "easeInOut",
-                            }}
+                            whileHover={{ scale: 1.1 }}
                           >
                             <span className="text-[#29066d] font-bold text-sm" style={{ fontFamily: 'var(--font-jaturat)' }}>VS</span>
                           </motion.div>
@@ -139,24 +223,45 @@ const MatchesSection = () => {
 
                       {/* Match details - Stacked layout */}
                       <div className="text-center space-y-2" style={{ fontFamily: 'var(--font-poppins)' }}>
-                        <motion.div 
-                          className="text-white font-bold text-lg"
-                          initial={{ opacity: 0.8 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-                        >
+                        <div className="text-white font-bold text-lg">
                           {match.date}
-                        </motion.div>
+                        </div>
                         <div className="text-white text-sm">{match.venue}</div>
                       </div>
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
 
-              {/* Gradient overlays for smooth edges */}
-              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#29066d] to-transparent z-20 pointer-events-none"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#29066d] to-transparent z-20 pointer-events-none"></div>
+              {/* Navigation Buttons - Bottom Center */}
+              <div className="flex justify-center items-center gap-4 mt-8">
+                <button 
+                  onClick={scrollPrev}
+                  className="bg-white text-[#29066d] w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors duration-300 border-2 border-[#29066d]"
+                  aria-label="Previous match"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                <button 
+                  onClick={scrollNext}
+                  className="bg-white text-[#29066d] w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors duration-300 border-2 border-[#29066d]"
+                  aria-label="Next match"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Hide scrollbar for webkit browsers */}
+              <style jsx>{`
+                .scrollbar-hide::-webkit-scrollbar {
+                  display: none;
+                }
+              `}</style>
             </div>
           </div>
         </div>

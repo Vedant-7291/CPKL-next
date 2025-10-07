@@ -22,9 +22,6 @@ const Navbar = () => {
     { name: 'Registration', href: '/registration' },
   ]
 
-  const leftLinks = navLinks.slice(0, 4)
-  const rightLinks = navLinks.slice(4)
-
   // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false)
@@ -48,91 +45,84 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Navigation Links */}
           <div className="flex items-center justify-between h-16">
-            {/* Left Links */}
-            <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
-              {leftLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`transition-colors duration-300 font-medium text-md px-2 py-1 rounded ${
-                    isActiveLink(link.href)
-                      ? 'text-gray-300 font-semibold border-b-2 border-white'
-                      : 'text-white hover:text-gray-300'
-                  }`}
-                  style={{ fontFamily: 'var(--font-poppins)' }}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
+            {/* Logo and Navigation Links Container */}
+            <div className="flex items-center w-full">
+              {/* Logo aligned to left corner */}
+              <div className="flex-shrink-0 mr-12 lg:mr-16">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                  <img 
+                    src="./assets/Logo CPKL.png" 
+                    alt="Logo" 
+                    className="w-16 h-16 object-cover"
+                  />
+                </div>
+              </div>
 
-            {/* Empty space for logo - logo will be positioned absolutely below */}
-            <div className="flex-shrink-0 w-16"></div>
-
-            {/* Right Links */}
-            <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
-              {rightLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`transition-colors duration-300 font-medium text-md px-2 py-1 rounded ${
-                    isActiveLink(link.href)
-                      ? 'text-gray-300 font-semibold border-b-2 border-white'
-                      : 'text-white hover:text-gray-300'
-                  }`}
-                  style={{ fontFamily: 'var(--font-poppins)' }}
-                >
-                  {link.name}
-                </a>
-              ))}
-              
-              {/* Contact Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsContactOpen(!isContactOpen)}
-                  className={`transition-colors duration-300 font-medium text-md px-2 py-1 rounded flex items-center ${
-                    isActiveLink('/contact') || isActiveLink('/registration')
-                      ? 'text-gray-300 font-semibold border-b-2 border-white'
-                      : 'text-white hover:text-gray-300'
-                  }`}
-                  style={{ fontFamily: 'var(--font-poppins)' }}
-                >
-                  Contact
-                  <svg 
-                    className={`ml-1 h-4 w-4 transition-transform ${isContactOpen ? 'rotate-180' : ''}`} 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
+              {/* Navigation Links with consistent spacing */}
+              <div className="hidden md:flex items-center space-x-10 lg:space-x-12 flex-1 ml-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className={`transition-colors duration-300 font-medium text-md px-3 py-1 rounded ${
+                      isActiveLink(link.href)
+                        ? 'text-gray-300 font-semibold border-b-2 border-white'
+                        : 'text-white hover:text-gray-300'
+                    }`}
+                    style={{ fontFamily: 'var(--font-poppins)' }}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
+                    {link.name}
+                  </a>
+                ))}
                 
-                {/* Dropdown Menu */}
-                {isContactOpen && (
-                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                    {contactLinks.map((link) => (
-                      <a
-                        key={link.name}
-                        href={link.href}
-                        className={`block px-4 py-2 text-sm ${
-                          isActiveLink(link.href)
-                            ? 'bg-gray-100 text-[#29066d] font-semibold'
-                            : 'text-gray-700 hover:bg-gray-100'
-                        }`}
-                        style={{ fontFamily: 'var(--font-poppins)' }}
-                        onClick={() => setIsContactOpen(false)}
-                      >
-                        {link.name}
-                      </a>
-                    ))}
-                  </div>
-                )}
+                {/* Contact Dropdown with same spacing */}
+                <div className="relative">
+                  <button
+                    onClick={() => setIsContactOpen(!isContactOpen)}
+                    className={`transition-colors duration-300 font-medium text-md px-3 py-1 rounded flex items-center ${
+                      isActiveLink('/contact') || isActiveLink('/registration')
+                        ? 'text-gray-300 font-semibold border-b-2 border-white'
+                        : 'text-white hover:text-gray-300'
+                    }`}
+                    style={{ fontFamily: 'var(--font-poppins)' }}
+                  >
+                    Contact
+                    <svg 
+                      className={`ml-2 h-4 w-4 transition-transform ${isContactOpen ? 'rotate-180' : ''}`} 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Dropdown Menu */}
+                  {isContactOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                      {contactLinks.map((link) => (
+                        <a
+                          key={link.name}
+                          href={link.href}
+                          className={`block px-4 py-2 text-sm ${
+                            isActiveLink(link.href)
+                              ? 'bg-gray-100 text-[#29066d] font-semibold'
+                              : 'text-gray-700 hover:bg-gray-100'
+                          }`}
+                          style={{ fontFamily: 'var(--font-poppins)' }}
+                          onClick={() => setIsContactOpen(false)}
+                        >
+                          {link.name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden flex-shrink-0">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-white hover:text-gray-300 p-2"
@@ -183,17 +173,6 @@ const Navbar = () => {
               </div>
             </div>
           )}
-
-          {/* Logo positioned between navbar and banner */}
-          <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 z-50">
-            <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-lg">
-              <img 
-                src="./assets/Logo CPKL.png" 
-                alt="Logo" 
-                className="w-20 h-20 object-cover"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </>
