@@ -3,3 +3,109 @@
 ./assets/Landing site match schedule bg img.png
 url('./assets/Landing site our teams bg.png
 ./assets/Landing Site Banner.png
+ const matches = [
+    {
+      id: 1,
+      title: "Match 1",
+      teamA: "Team A",
+      teamB: "Team B",
+      date: "MONDAY - 30 OCT 6:00 PM",
+      venue: "ABC Stadium XYZ"
+    },
+    {
+      id: 2,
+      title: "Match 2", 
+      teamA: "Team C",
+      teamB: "Team D",
+      date: "TUESDAY - 31 OCT 3:00 PM",
+      venue: "XYZ Arena Center"
+    },
+    {
+      id: 3,
+      title: "Match 3",
+      teamA: "Team E",
+      teamB: "Team F",
+      date: "WEDNESDAY - 1 NOV 5:00 PM",
+      venue: "National Stadium"
+    },
+    {
+      id: 4,
+      title: "Match 4",
+      teamA: "Team G",
+      teamB: "Team H",
+      date: "THURSDAY - 2 NOV 7:00 PM",
+      venue: "City Sports Complex"
+    },
+    {
+      id: 5,
+      title: "Match 5",
+      teamA: "Team I",
+      teamB: "Team J",
+      date: "FRIDAY - 3 NOV 4:00 PM",
+      venue: "Sports Arena Delhi"
+    },
+    {
+      id: 6,
+      title: "Match 6",
+      teamA: "Team K",
+      teamB: "Team L",
+      date: "SATURDAY - 4 NOV 8:00 PM",
+      venue: "Mumbai Ground"
+    },
+    {
+      id: 7,
+      title: "Match 7",
+      teamA: "Team M",
+      teamB: "Team N",
+      date: "SUNDAY - 5 NOV 2:00 PM",
+      venue: "Chennai Stadium"
+    },
+    {
+      id: 8,
+      title: "Match 8",
+      teamA: "Team O",
+      teamB: "Team P",
+      date: "MONDAY - 6 NOV 6:30 PM",
+      venue: "Kolkata Arena"
+    },
+    {
+      id: 9,
+      title: "Quarter Final 1",
+      teamA: "Winner A",
+      teamB: "Winner B",
+      date: "TUESDAY - 7 NOV 5:00 PM",
+      venue: "National Stadium"
+    },
+    {
+      id: 10,
+      title: "Quarter Final 2",
+      teamA: "Winner C",
+      teamB: "Winner D",
+      date: "WEDNESDAY - 8 NOV 7:00 PM",
+      venue: "City Sports Complex"
+    },
+    {
+      id: 11,
+      title: "Semi Final 1",
+      teamA: "QF Winner 1",
+      teamB: "QF Winner 2",
+      date: "FRIDAY - 10 NOV 6:00 PM",
+      venue: "ABC Stadium XYZ"
+    },
+    {
+      id: 12,
+      title: "Semi Final 2",
+      teamA: "QF Winner 3",
+      teamB: "QF Winner 4",
+      date: "SATURDAY - 11 NOV 8:00 PM",
+      venue: "XYZ Arena Center"
+    },
+    {
+      id: 13,
+      title: "GRAND FINALE",
+      teamA: "SF Winner 1",
+      teamB: "SF Winner 2",
+      date: "SUNDAY - 12 NOV 7:00 PM",
+      venue: "National Stadium"
+    }
+  ];

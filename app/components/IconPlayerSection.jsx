@@ -15,7 +15,7 @@ const IconPlayerSection = () => {
             {/* Left Content */}
             <div className="flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-jaturat mb-4 text-gray-800">
-                Pradeep Narwal
+                Pardeep Narwal
               </h2>
               <h3 className="text-xl md:text-2xl lg:text-3xl font-jaturat mb-6 text-[#29066d]">
                 - The Dubki King Returns

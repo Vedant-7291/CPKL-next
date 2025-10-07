@@ -94,28 +94,25 @@ const CpklTvPage = () => {
 
   return (
     <Layout>
-      <section className="relative w-full bg-white">
-        {/* Banner Container */}
-        <div className="relative w-full h-[75vh] min-h-[500px]">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ 
-              backgroundImage: "url('./assets/Pages Banner imp.png')"
-            }}
-          ></div>
-          
-          {/* Overlay */}
-          <div className="absolute "></div>
-          
-          {/* Content - Shifted upwards */}
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 transform -translate-y-8">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold font-galantic">
-              CPKL TV
-            </h1>
-          </div>
-        </div>
-      </section>
+       <section className="relative w-full bg-white">
+  <div className="relative w-full h-[75vh] min-h-[500px]">
+    <div 
+      className="absolute inset-0 bg-no-repeat"
+      style={{ 
+        backgroundImage: "url('./assets/allpb.png')",
+        backgroundSize: "100% 100%",
+        backgroundPosition: "center"
+      }}
+    ></div>
+    
+    {/* Content with left positioning */}
+    <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
+      <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary font-bold font-galantic absolute left-[20%]">
+        CPKL TV
+      </h1>
+    </div>
+  </div>
+</section>
       
       {/* CPKL TV Header Section */}
       <section className="bg-white py-12 md:py-16">
@@ -133,7 +130,7 @@ const CpklTvPage = () => {
       </section>
 
       {/* Dropdown Button Section */}
-      <section className="py-8">
+      <section className="py-8 pt-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center">
             <div className="relative w-full max-w-[50vw] min-w-[350px]" ref={dropdownRef}>

@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isContactOpen, setIsContactOpen] = useState(false)
   const pathname = usePathname()
 
   const navLinks = [
@@ -15,17 +14,14 @@ const Navbar = () => {
     { name: 'Schedule', href: '/schedule' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Blog', href: '/blogs' },
-  ]
-
-  const contactLinks = [
+    { name: 'Events', href: '/events' },
+    { name: 'CPKL TV', href: '/cpkl-tv' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Registration', href: '/registration' },
   ]
 
   // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false)
-    setIsContactOpen(false)
   }, [pathname])
 
   const isActiveLink = (href) => {
@@ -37,88 +33,61 @@ const Navbar = () => {
 
   return (
     <>
+      {/* Continuous Running Line - Fixed version */}
+      <div className="bg-[#29066d] py-2 overflow-hidden relative">
+        <div className="marquee-wrapper">
+          <div className="marquee-content whitespace-nowrap text-white font-sub text-sm md:text-base">
+            CPKL Season 2 • Dubai mein bajega Kabaddi ka danka! • The roar of kabaddi goes global! • 8 powerhouse teams • Legendary icons like Pardeep Narwal • Fresh rising stars • Kabaddi like the world has never seen before • 
+          </div>
+        </div>
+      </div>
+
       {/* Top Pattern - Full width outside the container */}
       <div className="w-full h-4 bg-repeat-x bg-cover" style={{ backgroundImage: "url('./assets/patternm.png')" }}></div>
       
       {/* Navbar with light purple background */}
-      <div className="w-full bg-[#29066d] relative z-40">
+      <div className="w-full bg-[#29066d] relative z-40 mb-1.5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Navigation Links */}
           <div className="flex items-center justify-between h-16">
-            {/* Logo and Navigation Links Container */}
-            <div className="flex items-center w-full">
-              {/* Logo aligned to left corner */}
-              <div className="flex-shrink-0 mr-12 lg:mr-16">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                  <img 
-                    src="./assets/Logo CPKL.png" 
-                    alt="Logo" 
-                    className="w-16 h-16 object-cover"
-                  />
-                </div>
+            {/* Logo aligned to left corner */}
+            <div className="flex-shrink-0">
+              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                <img 
+                  src="./assets/Logo CPKL.png" 
+                  alt="Logo" 
+                  className="w-16 h-16 object-cover"
+                />
               </div>
+            </div>
 
-              {/* Navigation Links with consistent spacing */}
-              <div className="hidden md:flex items-center space-x-10 lg:space-x-12 flex-1 ml-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className={`transition-colors duration-300 font-medium text-md px-3 py-1 rounded ${
-                      isActiveLink(link.href)
-                        ? 'text-gray-300 font-semibold border-b-2 border-white'
-                        : 'text-white hover:text-gray-300'
-                    }`}
-                    style={{ fontFamily: 'var(--font-poppins)' }}
-                  >
-                    {link.name}
-                  </a>
-                ))}
-                
-                {/* Contact Dropdown with same spacing */}
-                <div className="relative">
-                  <button
-                    onClick={() => setIsContactOpen(!isContactOpen)}
-                    className={`transition-colors duration-300 font-medium text-md px-3 py-1 rounded flex items-center ${
-                      isActiveLink('/contact') || isActiveLink('/registration')
-                        ? 'text-gray-300 font-semibold border-b-2 border-white'
-                        : 'text-white hover:text-gray-300'
-                    }`}
-                    style={{ fontFamily: 'var(--font-poppins)' }}
-                  >
-                    Contact
-                    <svg 
-                      className={`ml-2 h-4 w-4 transition-transform ${isContactOpen ? 'rotate-180' : ''}`} 
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  
-                  {/* Dropdown Menu */}
-                  {isContactOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                      {contactLinks.map((link) => (
-                        <a
-                          key={link.name}
-                          href={link.href}
-                          className={`block px-4 py-2 text-sm ${
-                            isActiveLink(link.href)
-                              ? 'bg-gray-100 text-[#29066d] font-semibold'
-                              : 'text-gray-700 hover:bg-gray-100'
-                          }`}
-                          style={{ fontFamily: 'var(--font-poppins)' }}
-                          onClick={() => setIsContactOpen(false)}
-                        >
-                          {link.name}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
+            {/* Navigation Links with reduced spacing */}
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-1 ml-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`transition-colors duration-300 font-medium text-md px-2 py-1 rounded whitespace-nowrap ${
+                    isActiveLink(link.href)
+                      ? 'text-gray-300 font-semibold border-b-2 border-white'
+                      : 'text-white hover:text-gray-300'
+                  }`}
+                  style={{ fontFamily: 'var(--font-poppins)' }}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+
+            {/* Register Now CTA Button with padding */}
+            <div className="hidden md:flex items-center ml-8">
+              <a
+                href="/registration"
+                className="bg-white text-[#29066d] font-semibold px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg whitespace-nowrap"
+                style={{ fontFamily: 'var(--font-poppins)' }}
+              >
+                Register Now
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -153,28 +122,42 @@ const Navbar = () => {
                   </a>
                 ))}
                 
-                {/* Contact and Registration in mobile menu */}
+                {/* Register Now in mobile menu */}
                 <div className="border-t border-gray-600 pt-2 mt-2">
-                  {contactLinks.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      className={`block px-3 py-2 text-sm font-medium rounded ${
-                        isActiveLink(link.href)
-                          ? 'text-white bg-white bg-opacity-10 font-semibold border-l-4 border-white'
-                          : 'text-white hover:text-gray-300 hover:bg-white hover:bg-opacity-5'
-                      }`}
-                      style={{ fontFamily: 'var(--font-poppins)' }}
-                    >
-                      {link.name}
-                    </a>
-                  ))}
+                  <a
+                    href="/registration"
+                    className="block px-3 py-2 text-sm font-medium bg-white text-[#29066d] rounded text-center font-semibold"
+                    style={{ fontFamily: 'var(--font-poppins)' }}
+                  >
+                    Register Now
+                  </a>
                 </div>
               </div>
             </div>
           )}
         </div>
       </div>
+
+      <style jsx>{`
+        .marquee-wrapper {
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+        }
+        .marquee-content {
+          display: inline-block;
+          animation: marquee 30s linear infinite;
+          padding-left: 100%;
+        }
+        @keyframes marquee {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      `}</style>
     </>
   )
 }

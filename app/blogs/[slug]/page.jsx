@@ -25,27 +25,24 @@ const BlogDetailPage = ({ params }) => {
     <Layout>
       {/* Banner Section - Same as main blog page */}
       <section className="relative w-full bg-white">
-        {/* Banner Container */}
-        <div className="relative w-full h-[75vh] min-h-[500px]">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ 
-              backgroundImage: "url('./assets/Pages Banner imp.png')" // Using same path as Gallery
-            }}
-          ></div>
-          
-          {/* Overlay */}
-          <div className="absolute "></div>
-          
-          {/* Content - Shifted upwards */}
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 transform -translate-y-8">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary text-center font-bold font-galantic">
-              BLOGS
-            </h1>
-          </div>
-        </div>
-      </section>
+  <div className="relative w-full h-[75vh] min-h-[500px]">
+    <div 
+      className="absolute inset-0 bg-no-repeat"
+      style={{ 
+        backgroundImage: "url('./assets/allpb.png')",
+        backgroundSize: "100% 100%",
+        backgroundPosition: "center"
+      }}
+    ></div>
+    
+    {/* Content with left positioning */}
+    <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
+      <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary font-bold font-galantic absolute left-[20%]">
+        BLOGS
+      </h1>
+    </div>
+  </div>
+</section>
       
       {/* Blog Content Section */}
       <section className="bg-white py-12 md:py-16">
@@ -64,16 +61,13 @@ const BlogDetailPage = ({ params }) => {
           </div>
 
           {/* Blog Heading */}
-          <div className="text-center mb-12">
+          <div className="text-left mb-12">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-jaturat text-black-90 mb-6 md:mb-8 font-galantic">
               {blog.title}
             </h1>
             <div className="w-24 h-1 bg-[#29066d] mx-auto mb-8"></div>
             
-            {/* Sub-heading as requested */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-jaturat text-gray-800 mb-8 font-galantic">
-              Player Voices League Stories Fan Passion
-            </h2>
+            
           </div>
 
           {/* Main Content Image - 70vw centered */}
