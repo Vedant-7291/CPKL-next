@@ -117,7 +117,7 @@ const TeamsSection = () => {
         </div>
 
         {/* Teams Carousel */}
-        <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+        <div className="relative z-10 mx-auto px-2 sm:px-4 lg:px-8">
           <div className="relative overflow-hidden px-2 sm:px-4 lg:px-8">
             {/* Carousel Track */}
             <div className="overflow-hidden">

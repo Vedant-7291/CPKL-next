@@ -238,18 +238,18 @@ const AboutPage = () => {
       </h2>
     </div>
 
-    {/* Management Grid - 2x2 layout with equal height cards */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-3xl mx-auto">
+    {/* Management Grid - 2x2 layout with overlapping text */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 lg:gap-12 max-w-3xl mx-auto">
       {/* Management Member 1 - Rakesh ji Bajiya */}
-      <div className="text-center">
-        <div>
+      <div className="text-center relative">
+        <div className="relative z-0">
           <img 
             src="./assets/management/1.png" 
             alt="Rakesh ji Bajiya" 
             className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
           />
         </div>
-        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center mt-0">
+        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-8 md:-mt-10 lg:-mt-12 rounded-b-lg shadow-lg">
           <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
             Rakesh ji Bajiya
           </h3>
@@ -263,15 +263,15 @@ const AboutPage = () => {
       </div>
 
       {/* Management Member 2 - Vandana Kundu */}
-      <div className="text-center">
-        <div>
+      <div className="text-center relative">
+        <div className="relative z-0">
           <img 
             src="./assets/management/2.png" 
             alt="Vandana Kundu" 
             className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
           />
         </div>
-        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center mt-0">
+        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-8 md:-mt-10 lg:-mt-12 rounded-b-lg shadow-lg">
           <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
             Vandana Kundu
           </h3>
@@ -283,15 +283,15 @@ const AboutPage = () => {
       </div>
 
       {/* Management Member 3 - Anil Kajla */}
-      <div className="text-center">
-        <div>
+      <div className="text-center relative">
+        <div className="relative z-0">
           <img 
             src="./assets/management/3.png" 
             alt="Anil Kajla" 
             className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
           />
         </div>
-        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center mt-0">
+        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-8 md:-mt-10 lg:-mt-12 rounded-b-lg shadow-lg">
           <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
             Anil Kajla
           </h3>
@@ -303,15 +303,15 @@ const AboutPage = () => {
       </div>
 
       {/* Management Member 4 - Kuldeep Kaswan */}
-      <div className="text-center">
-        <div>
+      <div className="text-center relative">
+        <div className="relative z-0">
           <img 
             src="./assets/management/4.png" 
             alt="Kuldeep Kaswan" 
             className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
           />
         </div>
-        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center mt-0">
+        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-8 md:-mt-10 lg:-mt-12 rounded-b-lg shadow-lg">
           <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
             Kuldeep Kaswan
           </h3>

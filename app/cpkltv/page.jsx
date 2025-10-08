@@ -107,7 +107,7 @@ const CpklTvPage = () => {
     
     {/* Content with left positioning */}
     <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
-      <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary font-bold font-galantic absolute left-[20%]">
+      <h1 className="text-7xl md:text-8xl lg:text-8xl text-primary font-bold font-galantic absolute left-[15%]">
         CPKL TV
       </h1>
     </div>
@@ -118,10 +118,10 @@ const CpklTvPage = () => {
       <section className="bg-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-jaturat text-black-90 mb-6 md:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-main text-black-90 mb-6 md:mb-8">
               Your Official Kabaddi Streaming Hub
             </h1>
-            <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed font-sub">
               Dive into the world of professional kabaddi with CPKL TV. Watch live matches, exclusive 
               interviews, behind-the-scenes content, and the most thrilling moments from the season.
             </p>

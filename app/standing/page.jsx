@@ -26,7 +26,7 @@ const PointsTablePage = () => {
 
   return (
     <Layout>
-       <section className="relative w-full bg-white">
+       <section className="relative w-full bg-white ">
   <div className="relative w-full h-[75vh] min-h-[500px]">
     <div 
       className="absolute inset-0 bg-no-repeat"
@@ -71,6 +71,16 @@ const PointsTablePage = () => {
                 Season 2024 Standings
               </p>
             </div>
+          </div>
+
+          {/* New Heading Line and CTA Button */}
+          <div className="mt-12 mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#180444] mb-6">
+              Who Rules the Court? Follow the Action Live.
+            </h2>
+            <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
+              View Live Stats
+            </button>
           </div>
         </div>
       </section>

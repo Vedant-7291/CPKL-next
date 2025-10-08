@@ -114,24 +114,36 @@ const MatchesSection = () => {
   const scrollContainerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const [cardWidth, setCardWidth] = useState(320);
+  const [visibleCards, setVisibleCards] = useState(4);
 
-  // Detect mobile screen and adjust card width
+  // Calculate card width based on screen size and visible cards
   useEffect(() => {
-    const checkMobile = () => {
-      const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
-      setCardWidth(mobile ? 280 : 320); // Smaller cards on mobile
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setIsMobile(true);
+        setVisibleCards(1); // Show 1 card on mobile
+      } else if (width < 768) {
+        setIsMobile(true);
+        setVisibleCards(2); // Show 2 cards on small tablets
+      } else if (width < 1024) {
+        setIsMobile(false);
+        setVisibleCards(3); // Show 3 cards on tablets
+      } else {
+        setIsMobile(false);
+        setVisibleCards(4); // Show 4 cards on desktop
+      }
     };
 
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
   const scrollToIndex = (index) => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
+      const cardWidth = container.offsetWidth / visibleCards;
       const scrollPosition = index * cardWidth;
       
       container.scrollTo({
@@ -143,14 +155,19 @@ const MatchesSection = () => {
   };
 
   const scrollNext = () => {
-    const nextIndex = (currentIndex + 1) % matches.length;
+    const maxIndex = Math.ceil(matches.length / visibleCards) - 1;
+    const nextIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
     scrollToIndex(nextIndex);
   };
 
   const scrollPrev = () => {
-    const prevIndex = (currentIndex - 1 + matches.length) % matches.length;
+    const maxIndex = Math.ceil(matches.length / visibleCards) - 1;
+    const prevIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
     scrollToIndex(prevIndex);
   };
+
+  // Calculate total pages
+  const totalPages = Math.ceil(matches.length / visibleCards);
 
   return (
     <section className="py-0 pt-12 md:pt-20">
@@ -162,21 +179,21 @@ const MatchesSection = () => {
         <div className="w-20 md:w-24 h-1 bg-secondary-light mx-auto"></div>
       </div>
 
-      {/* Background Section - Responsive but maintaining background styling */}
-      <div className="relative bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ 
+      {/* Background Section - Full width */}
+      <div className="relative bg-cover bg-center bg-no-repeat flex items-center justify-center w-full" style={{ 
         backgroundImage: "url('./assets/Landing site match schedule bg img.png')",
         minHeight: isMobile ? '60vh' : '70vh',
         backgroundSize: 'cover',
         backgroundPosition: 'center center'
       }}>
         <div className="absolute"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 w-full py-4 md:py-8">
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-6xl">
-              {/* Scrolling Container */}
+        <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 py-4 md:py-8">
+          <div className="flex justify-center w-full">
+            <div className="relative w-full max-w-7xl">
+              {/* Scrolling Container - Full width */}
               <div 
                 ref={scrollContainerRef}
-                className="flex gap-4 md:gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 px-2"
+                className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 px-2 w-full"
                 style={{ 
                   scrollbarWidth: 'none', 
                   msOverflowStyle: 'none',
@@ -188,7 +205,8 @@ const MatchesSection = () => {
                     key={match.id}
                     className="flex-shrink-0 relative bg-[#29066d] rounded-lg shadow-lg overflow-hidden border-2 border-white snap-center"
                     style={{ 
-                      width: isMobile ? '280px' : '320px',
+                      width: `calc(${100 / visibleCards}% - ${(visibleCards - 1) * 16 / visibleCards}px)`,
+                      minWidth: isMobile ? '280px' : '300px',
                       height: 'fit-content'
                     }}
                     initial={{ opacity: 0, y: 20 }}
@@ -266,6 +284,20 @@ const MatchesSection = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
+                
+                {/* Page Indicators */}
+                <div className="flex gap-2 mx-4">
+                  {Array.from({ length: totalPages }, (_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => scrollToIndex(i)}
+                      className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                        i === currentIndex ? 'bg-[#29066d]' : 'bg-gray-400'
+                      }`}
+                      aria-label={`Go to page ${i + 1}`}
+                    />
+                  ))}
+                </div>
                 
                 <button 
                   onClick={scrollNext}

@@ -93,17 +93,13 @@ const GalleryPage = () => {
 </section>
       
       {/* Gallery Header Section */}
-      <section className="bg-white py-12 md:py-16">
+      <section className="bg-white py-12 md:py-16 md:pb-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-jaturat text-black-90 mb-6 md:mb-8">
-              Where Every Raid Lives Forever
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-main text-black-90 mb-6 md:mb-8">
+              Relive the Roar
             </h1>
-            <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Step into the world of CPKL through our visual journey. From intense auction moments to 
-              thrilling match days and team celebrations, experience the passion and energy that defines 
-              Chhattisgarh Premier Kabaddi League.
-            </p>
+          
           </div>
         </div>
       </section>

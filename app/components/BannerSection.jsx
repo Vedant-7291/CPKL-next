@@ -6,13 +6,13 @@ const BannerSection = () => {
   
   const bannerData = [
     {
-      image: "./assets/Landing Site Banner-1.png",
+      image: "./assets/Landing site Banner-1.png",
     },
     {
-      image: "./assets/Landing Site Banner-2.png",
+      image: "./assets/Landing site Banner-2.png",
     },
     {
-      image: "./assets/Landing Site Banner-3.png",
+      image: "./assets/Landing site Banner-3.png",
     }
   ];
 

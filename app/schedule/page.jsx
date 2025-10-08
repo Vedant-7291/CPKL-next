@@ -39,32 +39,37 @@ const MatchSchedulePage = () => {
 
   return (
     <Layout>
-       <section className="relative w-full bg-white">
-  <div className="relative w-full h-[75vh] min-h-[500px]">
-    <div 
-      className="absolute inset-0 bg-no-repeat"
-      style={{ 
-        backgroundImage: "url('./assets/allpb.png')",
-        backgroundSize: "100% 100%",
-        backgroundPosition: "center"
-      }}
-    ></div>
-    
-    {/* Content with left positioning */}
-    <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
-      <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary font-bold font-galantic absolute left-[20%]">
-        SCHEDULE
-      </h1>
-    </div>
-  </div>
-</section>
+      <section className="relative w-full bg-white">
+        <div className="relative w-full h-[75vh] min-h-[500px]">
+          <div 
+            className="absolute inset-0 bg-no-repeat"
+            style={{ 
+              backgroundImage: "url('./assets/allpb.png')",
+              backgroundSize: "100% 100%",
+              backgroundPosition: "center"
+            }}
+          ></div>
+          
+          {/* Content with left positioning */}
+          <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary font-bold font-galantic absolute left-[20%]">
+              SCHEDULE
+            </h1>
+          </div>
+        </div>
+      </section>
 
-      <section className="bg-white py-12 md:py-16">
+      {/* New Heading and Subheading Section */}
+      <section className="bg-white py-12 md:py-16 md:pb-5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-jaturat text-black-90 mb-6 md:mb-8">
-              Match Schedule
+            <h1 className="font-main text-3xl sm:text-4xl md:text-5xl text-black-90 mb-6 md:mb-8">
+              Every Clash. Every Battle. Every Moment – Don't Miss Out.
             </h1>
+            <p className="font-sub text-lg sm:text-xl md:text-2xl text-gray-700">
+              15+ matches. 7 Days . 8 teams. Non-stop kabaddi action in Dubai.<br />
+              Stay tuned for the full Season 2 schedule.
+            </p>
           </div>
         </div>
       </section>

@@ -18,7 +18,7 @@ const BlogsSection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[1, 2, 3, 4, 5, 6].map((blog) => (
+          {[1, 2, 3].map((blog) => (
             <div key={blog} className="bg-[#29066d] rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col w-[90%] max-w-sm mx-auto h-96">
               <div className="h-48 bg-cover bg-center m-4 rounded-lg" style={{ backgroundImage: "url('./assets/Blog Img.png')" }}></div>
               <div className="p-6 pt-0 flex-grow flex flex-col">
