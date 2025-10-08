@@ -15,7 +15,7 @@ const Navbar = () => {
     { name: 'Gallery', href: '/gallery' },
     { name: 'Blog', href: '/blogs' },
     { name: 'Events', href: '/events' },
-    { name: 'CPKL TV', href: '/cpkl-tv' },
+    { name: 'CPKL TV', href: '/cpkltv' },
     { name: 'Contact', href: '/contact' },
   ]
 
@@ -48,21 +48,21 @@ const Navbar = () => {
       {/* Navbar with light purple background */}
       <div className="w-full bg-[#29066d] relative z-40 mb-1.5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Navigation Links */}
-          <div className="flex items-center justify-between h-16">
-            {/* Logo aligned to left corner */}
-            <div className="flex-shrink-0">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                <img 
-                  src="./assets/Logo CPKL.png" 
-                  alt="Logo" 
-                  className="w-16 h-16 object-cover"
-                />
-              </div>
+          {/* Logo at extreme left - separate from main flex */}
+          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-50">
+            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+              <img 
+                src="./assets/Logo CPKL.png" 
+                alt="Logo" 
+                className="w-16 h-16 object-cover"
+              />
             </div>
+          </div>
 
+          {/* Navigation Links - centered without logo */}
+          <div className="flex items-center justify-between h-16 ml-20">
             {/* Navigation Links with reduced spacing */}
-            <div className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-1 ml-8">
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-1 justify-center">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -79,8 +79,8 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Register Now CTA Button with padding */}
-            <div className="hidden md:flex items-center ml-8">
+            {/* Register Now CTA Button attached to right with small padding */}
+            <div className="hidden md:flex items-center ml-20 mr-2">
               <a
                 href="/registration"
                 className="bg-white text-[#29066d] font-semibold px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg whitespace-nowrap"

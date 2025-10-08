@@ -29,35 +29,35 @@ const RegistrationPage = () => {
         <div className="w-full mx-auto">
           {/* Heading Section */}
           <div className="text-center mb-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-main text-[#29066d] mb-3">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-main text-black mb-3">
               Your Chance to Join the Big Stage.
             </h1>
-            <p className="text-gray-600 text-sm md:text-base max-w-3xl mx-auto leading-relaxed font-sub">
+            <p className="text-black text-sm md:text-base max-w-3xl mx-auto leading-relaxed font-sub">
               The Canvi Premier Kabaddi League offers every athlete — from rural villages to city gyms — a chance to step up.
             </p>
           </div>
 
           {/* How to Register Section */}
           <div className="text-center mb-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-main text-[#29066d] mb-4">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-main text-black mb-4">
               How to Register:
             </h2>
             <div className="bg-gray-50 rounded-lg p-6 md:p-8">
               <ul className="text-left space-y-3 font-sub text-gray-700 text-sm md:text-base">
                 <li className="flex items-start">
-                  <span className="text-[#29066d] font-bold mr-3 mt-1">•</span>
+                  <span className="text-black font-bold mr-3 mt-1">•</span>
                   <span>Fill out the online form with personal details.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#29066d] font-bold mr-3 mt-1">•</span>
+                  <span className="text-black font-bold mr-3 mt-1">•</span>
                   <span>Upload fitness & kabaddi credentials.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#29066d] font-bold mr-3 mt-1">•</span>
+                  <span className="text-black font-bold mr-3 mt-1">•</span>
                   <span>Attend state-level trials.</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-[#29066d] font-bold mr-3 mt-1">•</span>
+                  <span className="text-black font-bold mr-3 mt-1">•</span>
                   <span>Get shortlisted for franchise selections.</span>
                 </li>
               </ul>

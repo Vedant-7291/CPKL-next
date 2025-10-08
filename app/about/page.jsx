@@ -163,7 +163,7 @@ const AboutPage = () => {
       <div className="w-full h-[3vh] bg-[#29066d]"></div>
 
       {/* Final Content Section - UPDATED WITH FOUNDER'S NOTE */}
-      {/* Final Content Section - UPDATED FOUNDER'S NOTE */}
+      
 <section className="relative bg-gray-900">
   <div className="w-full min-h-[90vh] flex items-center justify-center py-8 md:py-0">
     <div 
@@ -181,14 +181,14 @@ const AboutPage = () => {
     
     {/* Content with founder's note */}
     <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-      <div className="flex flex-col lg:flex-row items-stretch gap-6 md:gap-8 lg:gap-12 min-h-[500px]">
-        {/* Image Section - Reduced width, same height */}
+      <div className="flex flex-col lg:flex-row items-stretch gap-6 md:gap-8 lg:gap-12">
+        {/* Image Section - Full height matching text content */}
         <div className="lg:w-2/5 flex items-stretch">
           <div className="w-full h-full flex items-center justify-center">
             <img 
               src="./assets/Founder.png" 
               alt="CPKL Team" 
-              className="w-full h-full max-h-[600px] object-contain rounded-3xl shadow-2xl"
+              className="w-full h-full max-h-[700px] object-cover rounded-3xl shadow-2xl"
             />
           </div>
         </div>
@@ -228,96 +228,102 @@ const AboutPage = () => {
   </div>
 </section>
 
-               {/* Our Management Section */}
-      <section className="bg-white py-8 md:py-12 lg:py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Heading */}
-          <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-main text-black-90 font-bold">
-              Our Management
-            </h2>
-          </div>
+   {/* Our Management Section */}
+<section className="bg-white py-8 md:py-12 lg:py-16">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Heading */}
+    <div className="text-center mb-6 md:mb-8">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-main text-black-90 font-bold">
+        Our Management
+      </h2>
+    </div>
 
-          {/* Management Grid - 2x2 layout with reduced gap */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-3xl mx-auto">
-            {/* Management Member 1 */}
-            <div className="text-center">
-              <div>
-                <img 
-                  src="./assets/management/1.png" 
-                  alt="Management Member 1" 
-                  className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="bg-[#180444] p-3 md:p-4  w-40 md:w-48 lg:w-56 xl:w-64 mx-auto">
-                <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
-                  Member Name 1
-                </h3>
-                <p className="text-sm md:text-base text-gray-300 font-sub">
-                  Designation/Role
-                </p>
-              </div>
-            </div>
-
-            {/* Management Member 2 */}
-            <div className="text-center">
-              <div>
-                <img 
-                  src="./assets/management/2.png" 
-                  alt="Management Member 2" 
-                  className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="bg-[#180444]  p-3 md:p-4  w-40 md:w-48 lg:w-56 xl:w-64 mx-auto">
-                <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
-                  Member Name 2
-                </h3>
-                <p className="text-sm md:text-base text-gray-300 font-sub">
-                  Designation/Role
-                </p>
-              </div>
-            </div>
-
-            {/* Management Member 3 */}
-            <div className="text-center">
-              <div>
-                <img 
-                  src="./assets/management/3.png" 
-                  alt="Management Member 3" 
-                  className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="bg-[#180444]  p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto">
-                <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
-                  Member Name 3
-                </h3>
-                <p className="text-sm md:text-base text-gray-300 font-sub">
-                  Designation/Role
-                </p>
-              </div>
-            </div>
-
-            {/* Management Member 4 */}
-            <div className="text-center">
-              <div>
-                <img 
-                  src="./assets/management/4.png" 
-                  alt="Management Member 4" 
-                  className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="bg-[#180444]  p-3 md:p-4  w-40 md:w-48 lg:w-56 xl:w-64 mx-auto">
-                <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
-                  Member Name 4
-                </h3>
-                <p className="text-sm md:text-base text-gray-300 font-sub">
-                  Designation/Role
-                </p>
-              </div>
-            </div>
-          </div>
+    {/* Management Grid - 2x2 layout with equal height cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-3xl mx-auto">
+      {/* Management Member 1 - Rakesh ji Bajiya */}
+      <div className="text-center">
+        <div>
+          <img 
+            src="./assets/management/1.png" 
+            alt="Rakesh ji Bajiya" 
+            className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
+          />
         </div>
-      </section>
+        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center mt-0">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+            Rakesh ji Bajiya
+          </h3>
+          <p className="text-xs md:text-sm text-gray-300 font-sub leading-tight">
+            Vice President<br />
+            Canvi Premier Kabaddi League<br />
+            Chairman<br />
+            Canvi Sports Federation
+          </p>
+        </div>
+      </div>
+
+      {/* Management Member 2 - Vandana Kundu */}
+      <div className="text-center">
+        <div>
+          <img 
+            src="./assets/management/2.png" 
+            alt="Vandana Kundu" 
+            className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
+          />
+        </div>
+        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center mt-0">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+            Vandana Kundu
+          </h3>
+          <p className="text-xs md:text-sm text-gray-300 font-sub leading-tight">
+            Management<br />
+            Canvi Premier Kabaddi League
+          </p>
+        </div>
+      </div>
+
+      {/* Management Member 3 - Anil Kajla */}
+      <div className="text-center">
+        <div>
+          <img 
+            src="./assets/management/3.png" 
+            alt="Anil Kajla" 
+            className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
+          />
+        </div>
+        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center mt-0">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+            Anil Kajla
+          </h3>
+          <p className="text-xs md:text-sm text-gray-300 font-sub leading-tight">
+            Management<br />
+            Canvi Premier Kabaddi League
+          </p>
+        </div>
+      </div>
+
+      {/* Management Member 4 - Kuldeep Kaswan */}
+      <div className="text-center">
+        <div>
+          <img 
+            src="./assets/management/4.png" 
+            alt="Kuldeep Kaswan" 
+            className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
+          />
+        </div>
+        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center mt-0">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+            Kuldeep Kaswan
+          </h3>
+          <p className="text-xs md:text-sm text-gray-300 font-sub leading-tight">
+            Management<br />
+            Canvi Premier Kabaddi League
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       {/* Partners Section */}
       <PartnersSection />
     </Layout>

@@ -3,7 +3,9 @@ const Footer = () => {
     { name: 'Home', href: '/' },
     { name: 'Matches', href: '/matches' },
     { name: 'Teams', href: '/teams' },
-    { name: 'News', href: '/news' },
+
+    { name: 'Standings', href: '/standings' },
+    { name: 'Gallery', href: '/gallery' },
   ]
 
   return (

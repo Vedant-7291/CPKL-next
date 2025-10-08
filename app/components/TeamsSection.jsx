@@ -47,55 +47,39 @@ const TeamsSection = () => {
     return () => window.removeEventListener('resize', updateResponsiveSettings);
   }, []);
 
-  // Auto carousel - only for mobile
+  // Auto carousel for all devices - one by one sliding
   useEffect(() => {
-    if (!isMobile) return;
-    
     const interval = setInterval(() => {
-      handleNext();
-    }, 3000);
+      if (isMobile) {
+        // Mobile: Simple loop through all items one by one
+        setCurrentIndex((prevIndex) => 
+          prevIndex === teams.length - 1 ? 0 : prevIndex + 1
+        );
+      } else {
+        // Desktop/Tablet: Move one item at a time
+        setCurrentIndex((prevIndex) => {
+          // If we're at the end, loop back to start
+          if (prevIndex >= teams.length - itemsToShow) {
+            return 0;
+          }
+          return prevIndex + 1;
+        });
+      }
+    }, 3000); // Auto-scroll every 3 seconds
 
     return () => clearInterval(interval);
-  }, [currentIndex, isMobile]);
+  }, [currentIndex, isMobile, itemsToShow, teams.length]);
 
-  const handleNext = () => {
-    if (isMobile) {
-      // Mobile: Simple loop through all items
-      setCurrentIndex((prevIndex) => 
-        prevIndex === teams.length - 1 ? 0 : prevIndex + 1
-      );
-    } else {
-      // Desktop/Tablet: Show groups of items
-      const maxIndex = teams.length - itemsToShow;
-      setCurrentIndex((prevIndex) => 
-        prevIndex >= maxIndex ? 0 : prevIndex + itemsToShow
-      );
-    }
-  };
-
-  const handlePrev = () => {
-    if (isMobile) {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === 0 ? teams.length - 1 : prevIndex - 1
-      );
-    } else {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === 0 ? teams.length - itemsToShow : prevIndex - itemsToShow
-      );
-    }
-  };
-
-  const goToSlide = (index) => {
-    setCurrentIndex(index);
-  };
-
-  // Calculate transform for mobile carousel
+  // Calculate transform for smooth sliding
   const calculateTransform = () => {
     if (isMobile) {
-      return currentIndex * 100; // 100% per slide on mobile
+      // Mobile: 100% per slide
+      return currentIndex * 100;
+    } else {
+      // Desktop/Tablet: Calculate based on item width for one-by-one movement
+      const itemWidth = 100 / itemsToShow;
+      return currentIndex * itemWidth;
     }
-    const cardWidthPercentage = 100 / itemsToShow;
-    return currentIndex * cardWidthPercentage;
   };
 
   const getCardWidth = () => {
@@ -103,6 +87,22 @@ const TeamsSection = () => {
       return '100%'; // Full width on mobile
     }
     return `calc(${100 / itemsToShow}% - ${(itemsToShow - 1) * 1}rem / ${itemsToShow})`;
+  };
+
+  // Get visible teams based on current index
+  const getVisibleTeams = () => {
+    if (isMobile) {
+      // Mobile: Show only one team at current index
+      return [teams[currentIndex]];
+    } else {
+      // Desktop/Tablet: Show multiple teams starting from current index
+      const visibleTeams = [];
+      for (let i = 0; i < itemsToShow; i++) {
+        const index = (currentIndex + i) % teams.length;
+        visibleTeams.push(teams[index]);
+      }
+      return visibleTeams;
+    }
   };
 
   return (
@@ -119,27 +119,6 @@ const TeamsSection = () => {
         {/* Teams Carousel */}
         <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
           <div className="relative overflow-hidden px-2 sm:px-4 lg:px-8">
-            {/* Manual Navigation Buttons */}
-            <button 
-              onClick={handlePrev}
-              className="absolute left-0 md:left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white bg-opacity-80 text-[#29066d] w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-100 transition-all duration-200 border border-gray-300"
-              aria-label="Previous teams"
-            >
-              <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            <button 
-              onClick={handleNext}
-              className="absolute right-0 md:right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white bg-opacity-80 text-[#29066d] w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-100 transition-all duration-200 border border-gray-300"
-              aria-label="Next teams"
-            >
-              <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
             {/* Carousel Track */}
             <div className="overflow-hidden">
               <motion.div 
@@ -148,9 +127,11 @@ const TeamsSection = () => {
                 transition={{ 
                   type: "spring",
                   stiffness: 300,
-                  damping: 30
+                  damping: 30,
+                  duration: 0.5
                 }}
               >
+                {/* Render all teams but only visible ones will show based on transform */}
                 {teams.map((team) => (
                   <motion.div
                     key={team.id}
@@ -178,7 +159,7 @@ const TeamsSection = () => {
               {teams.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => goToSlide(index)}
+                  onClick={() => setCurrentIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     currentIndex === index ? 'bg-[#29066d] scale-125' : 'bg-gray-300'
                   }`}
@@ -191,14 +172,14 @@ const TeamsSection = () => {
           {/* Group Dots Indicator - For desktop/tablet */}
           {!isMobile && (
             <div className="flex justify-center mt-4 md:mt-6 space-x-2">
-              {Array.from({ length: Math.ceil(teams.length / itemsToShow) }).map((_, index) => (
+              {Array.from({ length: teams.length }).map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentIndex(index * itemsToShow)}
+                  onClick={() => setCurrentIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    Math.floor(currentIndex / itemsToShow) === index ? 'bg-[#29066d] scale-125' : 'bg-gray-300'
+                    currentIndex === index ? 'bg-[#29066d] scale-125' : 'bg-gray-300'
                   }`}
-                  aria-label={`Go to team group ${index + 1}`}
+                  aria-label={`Go to team ${index + 1}`}
                 />
               ))}
             </div>
