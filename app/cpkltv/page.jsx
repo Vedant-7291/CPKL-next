@@ -5,64 +5,200 @@ import Layout from '../components/Layout'
 const CpklTvPage = () => {
   const [activeCategory, setActiveCategory] = useState('Live Matches');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [videoData, setVideoData] = useState({});
   const dropdownRef = useRef(null);
 
-  // Define different image sets for each category
+  // Define different video sets for each category with thumbnails
   const tvCategories = {
     'Live Matches': [
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png'
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.mp4',
+        thumbnail: '/assets/reg.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skateboarding-in-a-parking-lot-34558-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skateboarding-in-a-parking-lot-34558-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-34554-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-34554-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2402-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2402-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-sky-1180-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-sky-1180-large.png'
+      }
     ],
     'Player Interviews': [
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png'
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skateboarding-in-a-parking-lot-34558-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skateboarding-in-a-parking-lot-34558-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-34554-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-34554-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2402-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2402-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-sky-1180-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-sky-1180-large.png'
+      }
     ],
     'Behind-the-Scenes Specials': [
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png'
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skateboarding-in-a-parking-lot-34558-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skateboarding-in-a-parking-lot-34558-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-34554-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-34554-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2402-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2402-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-sky-1180-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-sky-1180-large.png'
+      }
     ],
     'Best Raids & Tackles of the Season': [
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png'
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-34554-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-34554-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skateboarding-in-a-parking-lot-34558-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skateboarding-in-a-parking-lot-34558-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2402-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2402-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-sky-1180-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-sky-1180-large.png'
+      }
     ],
     'Match Highlights': [
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png'
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-group-of-friends-partying-happily-4640-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skateboarding-in-a-parking-lot-34558-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skateboarding-in-a-parking-lot-34558-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-34554-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-34554-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-1487-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2402-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2402-large.png'
+      },
+      { 
+        video: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-sky-1180-large.mp4',
+        thumbnail: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-sky-1180-large.png'
+      }
     ]
   };
 
@@ -80,8 +216,8 @@ const CpklTvPage = () => {
     };
   }, []);
 
-  // Get current images based on active category
-  const currentImages = tvCategories[activeCategory];
+  // Get current videos based on active category
+  const currentVideos = tvCategories[activeCategory];
 
   const handleCategorySelect = (category) => {
     setActiveCategory(category);
@@ -92,27 +228,43 @@ const CpklTvPage = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  // Handle video play to hide thumbnail
+  const handleVideoPlay = (index) => {
+    setVideoData(prev => ({
+      ...prev,
+      [index]: { ...prev[index], isPlaying: true }
+    }));
+  };
+
+  // Handle video pause to show thumbnail
+  const handleVideoPause = (index) => {
+    setVideoData(prev => ({
+      ...prev,
+      [index]: { ...prev[index], isPlaying: false }
+    }));
+  };
+
   return (
     <Layout>
-       <section className="relative w-full bg-white">
-  <div className="relative w-full h-[75vh] min-h-[500px]">
-    <div 
-      className="absolute inset-0 bg-no-repeat"
-      style={{ 
-        backgroundImage: "url('./assets/allpb.png')",
-        backgroundSize: "100% 100%",
-        backgroundPosition: "center"
-      }}
-    ></div>
-    
-    {/* Content with left positioning */}
-    <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
-      <h1 className="text-7xl md:text-8xl lg:text-8xl text-primary font-bold font-galantic absolute left-[15%]">
-        CPKL TV
-      </h1>
-    </div>
-  </div>
-</section>
+      <section className="relative w-full bg-white">
+        <div className="relative w-full h-[75vh] min-h-[500px]">
+          <div 
+            className="absolute inset-0 bg-no-repeat"
+            style={{ 
+              backgroundImage: "url('./assets/allpb.png')",
+              backgroundSize: "100% 100%",
+              backgroundPosition: "center"
+            }}
+          ></div>
+          
+          {/* Content with left positioning */}
+          <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
+            <h1 className="text-7xl md:text-6xl lg:text-8xl text-primary font-bold font-galantic absolute left-[15%]">
+              CPKL TV
+            </h1>
+          </div>
+        </div>
+      </section>
       
       {/* CPKL TV Header Section */}
       <section className="bg-white py-12 md:py-16">
@@ -176,18 +328,50 @@ const CpklTvPage = () => {
       {/* CPKL TV Grid Section */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* 3x3 Square Image Grid */}
+          {/* 3x3 Square Video Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {currentImages.map((imageSrc, index) => (
+            {currentVideos.map((item, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 border-2 border-gray-200 aspect-square"
+                className="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 border-2 border-gray-200 aspect-square relative"
               >
-                <img 
-                  src={imageSrc} 
-                  alt={`CPKL TV ${activeCategory} Image ${index + 1}`} 
+                {/* Video Thumbnail */}
+                {!videoData[index]?.isPlaying && (
+                  <div className="absolute inset-0 z-10 cursor-pointer">
+                    <img 
+                      src={item.thumbnail} 
+                      alt={`${activeCategory} Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Play Button Overlay */}
+                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all">
+                        <svg 
+                          className="w-8 h-8 text-[#180444] ml-1" 
+                          fill="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Video Player */}
+                <video 
+                  src={item.video} 
                   className="w-full h-full object-cover"
-                />
+                  controls
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  onPlay={() => handleVideoPlay(index)}
+                  onPause={() => handleVideoPause(index)}
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             ))}
           </div>

@@ -9,26 +9,26 @@ const GalleryPage = () => {
   // Define different image sets for each category
   const imageSets = {
     auction: [
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png'
+      './assets/gallery/ps1.png',
+      './assets/gallery/ps2.png',
+      './assets/gallery/ps3.png',
+      './assets/gallery/ps4.png',
+      './assets/gallery/ps5.png',
+      './assets/gallery/ps6.png',
+      './assets/gallery/ps7.png',
+      './assets/gallery/ps8.png',
+      './assets/gallery/ps9.png'
     ],
     matchDay: [
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png'
+      './assets/gallery/ps1.jpg',
+      './assets/gallery/ps2.jpg',
+      './assets/gallery/ps3.jpg',
+      './assets/gallery/ps4.jpg',
+      './assets/gallery/ps5.jpg',
+      './assets/gallery/ps6.jpg',
+      './assets/gallery/ps7.jpg',
+      './assets/gallery/ps8.jpg',
+      './assets/gallery/ps9.jpg'
     ],
     team: [
       './assets/1.png',
@@ -85,7 +85,7 @@ const GalleryPage = () => {
     
     {/* Content with left positioning */}
     <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
-      <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary font-bold font-galantic absolute left-[20%]">
+      <h1 className="text-3xl md:text-6xl lg:text-8xl text-primary font-bold font-galantic absolute left-[15%]">
         GALLERY
       </h1>
     </div>
@@ -151,12 +151,12 @@ const GalleryPage = () => {
             {currentImages.map((imageSrc, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 border-2 border-gray-200 aspect-square"
+                className="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 border-2 border-gray-200 aspect-square flex items-center justify-center bg-gray-100 p-0"
               >
                 <img 
                   src={imageSrc} 
                   alt={`CPKL ${activeCategory} Image ${index + 1}`} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover min-w-full min-h-full"
                 />
               </div>
             ))}

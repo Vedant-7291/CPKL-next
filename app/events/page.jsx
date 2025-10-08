@@ -10,15 +10,17 @@ const EventsPage = () => {
   // Define different image sets for each event
   const eventImages = {
     'Selection Trials': [
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png',
-      './assets/2.png',
-      './assets/1.png'
+      './assets/events/e1.webp',
+      './assets/events/e2.webp',
+      './assets/events/e3.webp',
+      './assets/events/e4.webp',
+      './assets/events/e5.webp',
+      './assets/events/e6.webp',
+      './assets/events/e7.webp',
+      './assets/events/e8.webp',
+      './assets/events/e9.webp',
+      './assets/events/e10.webp',
+      './assets/events/e11.webp'
     ],
     'League Mega Launch': [
       './assets/2.png',
@@ -107,7 +109,7 @@ const EventsPage = () => {
     
     {/* Content with left positioning */}
     <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
-      <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary font-bold font-galantic absolute left-[20%]">
+      <h1 className="text-3xl md:text-6xl lg:text-8xl text-primary font-bold font-galantic absolute left-[15%]">
         EVENTS
       </h1>
     </div>
@@ -117,10 +119,10 @@ const EventsPage = () => {
       <section className="bg-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-jaturat text-black-90 mb-6 md:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-main text-black-90 mb-6 md:mb-8">
               Celebrating Kabaddi's Finest Moments
             </h1>
-            <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed font-sub">
               Experience the complete CPKL journey through our spectacular events. From talent discovery 
               to grand celebrations, each event marks a milestone in our kabaddi legacy.
             </p>
@@ -185,7 +187,7 @@ const EventsPage = () => {
                 <img 
                   src={imageSrc} 
                   alt={`CPKL ${activeEvent} Image ${index + 1}`} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-fill"
                 />
               </div>
             ))}

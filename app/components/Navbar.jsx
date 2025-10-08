@@ -6,16 +6,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
-  const leftLinks = [
+  const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Team', href: '/team' },
     { name: 'Standing', href: '/standing' },
     { name: 'Schedule', href: '/schedule' },
     { name: 'Gallery', href: '/gallery' },
-  ]
-
-  const rightLinks = [
     { name: 'Blog', href: '/blogs' },
     { name: 'Events', href: '/events' },
     { name: 'CPKL TV', href: '/cpkltv' },
@@ -51,17 +48,29 @@ const Navbar = () => {
       {/* Navbar with light purple background */}
       <div className="w-full bg-[#29066d] relative z-40 mb-1.5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Left Links - 6 items with optimized spacing */}
-            <div className="hidden md:flex items-center space-x-5 lg:space-x-6 flex-1">
-              {leftLinks.map((link) => (
+          {/* Logo at extreme left - separate from main flex */}
+          <div className="absolute left-16 top-1/2 transform -translate-y-1/2 z-50">
+            <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center shadow-lg">
+              <img 
+                src="./assets/Logo CPKL.png" 
+                alt="Logo" 
+                className="w-24 h-24 object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Navigation Links - centered without logo */}
+          <div className="flex items-center justify-between h-16 ml-28">
+            {/* Navigation Links with reduced spacing */}
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-1 justify-center">
+              {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`transition-all duration-300 font-medium text-md px-2 py-1 rounded whitespace-nowrap ${
+                  className={`transition-colors duration-300 font-medium text-md px-2 py-1 rounded whitespace-nowrap ${
                     isActiveLink(link.href)
                       ? 'text-gray-300 font-semibold border-b-2 border-white'
-                      : 'text-white hover:text-gray-300 hover:scale-105'
+                      : 'text-white hover:text-gray-300'
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
                 >
@@ -70,51 +79,31 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Centered Logo with balanced spacing */}
-            <div className="flex-shrink-0 mx-6 lg:mx-8">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-300">
-                <img 
-                  src="./assets/Logo CPKL.png" 
-                  alt="Logo" 
-                  className="w-16 h-16 object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Right Links - 4 items with optimized spacing */}
-            <div className="hidden md:flex items-center space-x-5 lg:space-x-6 flex-1 justify-end">
-              {rightLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`transition-all duration-300 font-medium text-md px-2 py-1 rounded whitespace-nowrap ${
-                    isActiveLink(link.href)
-                      ? 'text-gray-300 font-semibold border-b-2 border-white'
-                      : 'text-white hover:text-gray-300 hover:scale-105'
-                  }`}
-                  style={{ fontFamily: 'var(--font-poppins)' }}
-                >
-                  {link.name}
-                </a>
-              ))}
-
-              {/* Register Now CTA Button with proper spacing */}
-              <div className="ml-6 lg:ml-8">
-                <a
-                  href="/registration"
-                  className="bg-gradient-to-r from-white to-gray-200 text-[#29066d] font-bold px-5 py-2.5 rounded-lg hover:from-gray-200 hover:to-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform whitespace-nowrap"
-                  style={{ fontFamily: 'var(--font-poppins)' }}
-                >
+            {/* Register Now CTA Button with animations only */}
+            <div className="hidden md:flex items-center ml-20 mr-2">
+              <a
+                href="/registration"
+                className="bg-white text-[#29066d] font-bold px-6 py-3 rounded-lg shadow-xl relative overflow-hidden group animate-bounce-slow whitespace-nowrap border-2 border-white/50"
+                style={{ fontFamily: 'var(--font-poppins)' }}
+              >
+                {/* Moving shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1500"></div>
+                
+                {/* Pulsing glow effect */}
+                <div className="absolute inset-0 rounded-lg bg-white/30 animate-pulse-glow"></div>
+                
+                {/* Button text */}
+                <span className="relative z-10 font-semibold">
                   Register Now
-                </a>
-              </div>
+                </span>
+              </a>
             </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden flex-shrink-0">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-white hover:text-gray-300 p-2 transition-colors duration-300"
+                className="text-white hover:text-gray-300 p-2"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -127,12 +116,11 @@ const Navbar = () => {
           {isOpen && (
             <div className="md:hidden pb-4">
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#29066d] border-t border-gray-600">
-                {/* All links in mobile view */}
-                {[...leftLinks, ...rightLinks].map((link) => (
+                {navLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`block px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+                    className={`block px-3 py-2 text-sm font-medium rounded ${
                       isActiveLink(link.href)
                         ? 'text-white bg-white bg-opacity-10 font-semibold border-l-4 border-white'
                         : 'text-white hover:text-gray-300 hover:bg-white hover:bg-opacity-5'
@@ -143,14 +131,15 @@ const Navbar = () => {
                   </a>
                 ))}
                 
-                {/* Register Now in mobile menu */}
+                {/* Register Now in mobile menu with animation */}
                 <div className="border-t border-gray-600 pt-2 mt-2">
                   <a
                     href="/registration"
-                    className="block px-3 py-3 text-sm font-medium bg-gradient-to-r from-white to-gray-200 text-[#29066d] rounded text-center font-bold hover:from-gray-200 hover:to-white transition-all duration-300"
+                    className="block px-3 py-3 text-sm font-medium bg-white text-[#29066d] rounded text-center font-bold relative overflow-hidden animate-bounce-slow border-2 border-white/50"
                     style={{ fontFamily: 'var(--font-poppins)' }}
                   >
-                    Register Now
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1500"></div>
+                    <span className="relative z-10">Register Now</span>
                   </a>
                 </div>
               </div>
@@ -177,6 +166,28 @@ const Navbar = () => {
           100% {
             transform: translateX(-100%);
           }
+        }
+        @keyframes bounce-slow {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-3px);
+          }
+        }
+        @keyframes pulse-glow {
+          0%, 100% {
+            opacity: 0.3;
+          }
+          50% {
+            opacity: 0.6;
+          }
+        }
+        .animate-bounce-slow {
+          animation: bounce-slow 3s ease-in-out infinite;
+        }
+        .animate-pulse-glow {
+          animation: pulse-glow 2s ease-in-out infinite;
         }
       `}</style>
     </>

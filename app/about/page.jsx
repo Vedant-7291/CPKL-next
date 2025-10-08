@@ -25,7 +25,7 @@ const AboutPage = () => {
     
     {/* Content with left positioning */}
     <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
-      <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary font-bold font-galantic absolute left-[20%]">
+      <h1 className="text-3xl md:text-6xl lg:text-8xl text-primary font-bold font-galantic absolute left-[15%]">
         ABOUT 
       </h1>
     </div>
@@ -57,49 +57,10 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Image Container Section - Reduced gap between content and images */}
-      <div className="relative">
-        {/* First Div - White Background with REDUCED height */}
-        <div className="bg-white h-24 sm:h-28 md:h-32 lg:h-36"></div>
-        
-        {/* Images Container - Centered between white and purple */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-            {/* Image 1 */}
-            <div className="rounded-lg p-2 sm:p-3 md:p-4 transform hover:scale-105 transition-transform duration-300">
-              <img 
-                src="./assets/1.png" 
-                alt="CPKL Action 1" 
-                className="w-full h-24 sm:h-28 md:h-32 lg:h-56 object-cover rounded-md"
-              />
-            </div>
-            
-            {/* Image 2 */}
-            <div className="rounded-lg p-2 sm:p-3 md:p-4 transform hover:scale-105 transition-transform duration-300">
-              <img 
-                src="./assets/2.png" 
-                alt="CPKL Action 2" 
-                className="w-full h-24 sm:h-28 md:h-32 lg:h-56 object-cover rounded-md"
-              />
-            </div>
-            
-            {/* Image 3 */}
-            <div className="rounded-lg p-2 sm:p-3 md:p-4 transform hover:scale-105 transition-transform duration-300">
-              <img 
-                src="./assets/1.png" 
-                alt="CPKL Action 3" 
-                className="w-full h-24 sm:h-28 md:h-32 lg:h-56 object-cover rounded-md"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Second Div - Purple Background with REDUCED height */}
-        <div className="bg-[#29066d] h-24 sm:h-28 md:h-32 lg:h-36"></div>
-      </div>
+    
 
       {/* Main Purple Content Section */}
-      <section className="bg-[#29066d] pt-4 sm:pt-6 md:pt-8 lg:pt-10 pb-16 sm:pb-20 md:pb-24 lg:pb-28">
+      <section className="bg-[#29066d] pt-4 sm:pt-6 md:pt-8 lg:pt-15 pb-10 sm:pb-20 md:pb-24 lg:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#180444] rounded-2xl shadow-2xl p-6 md:p-8 lg:p-12 xl:p-16">
             
@@ -113,7 +74,7 @@ const AboutPage = () => {
               </div>
               <div className="lg:w-1/2 mt-6 lg:mt-0">
                 <img 
-                  src="./assets/1.png" 
+                  src="./assets/mission.png" 
                   alt="Our Mission" 
                   className="w-full h-40 sm:h-48 md:h-64 lg:h-80 object-cover rounded-lg shadow-lg"
                 />
@@ -130,7 +91,7 @@ const AboutPage = () => {
               </div>
               <div className="lg:w-1/2 mt-6 lg:mt-0">
                 <img 
-                  src="./assets/2.png" 
+                  src="./assets/vision.png" 
                   alt="Our Vision" 
                   className="w-full h-40 sm:h-48 md:h-64 lg:h-80 object-cover rounded-lg shadow-lg border-r"
                 />
@@ -228,32 +189,33 @@ const AboutPage = () => {
   </div>
 </section>
 
-   {/* Our Management Section */}
-<section className="bg-white py-8 md:py-12 lg:py-16">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Our Management Section */}
+{/* Our Management Section */}
+<section className="bg-white py-8 md:py-12 lg:py-16 w-full">
+  <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
     {/* Section Heading */}
-    <div className="text-center mb-6 md:mb-8">
+    <div className="text-center mb-8 md:mb-12">
       <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-main text-black-90 font-bold">
         Our Management
       </h2>
     </div>
 
-    {/* Management Grid - 2x2 layout with overlapping text */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 lg:gap-12 max-w-3xl mx-auto">
+    {/* Management Grid - Full width single row layout */}
+    <div className="flex flex-nowrap justify-between items-stretch w-full gap-4 md:gap-6 lg:gap-8">
       {/* Management Member 1 - Rakesh ji Bajiya */}
-      <div className="text-center relative">
-        <div className="relative z-0">
+      <div className="text-center relative flex-1 min-w-0">
+        <div className="relative z-0 w-full">
           <img 
             src="./assets/management/1.png" 
             alt="Rakesh ji Bajiya" 
-            className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
+            className="w-full h-48 md:h-56 lg:h-64 xl:h-72 object-cover rounded-lg shadow-lg"
           />
         </div>
-        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-8 md:-mt-10 lg:-mt-12 rounded-b-lg shadow-lg">
-          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+        <div className="bg-[#180444] p-4 md:p-5 w-full min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-6 md:-mt-8 lg:-mt-10 rounded-b-lg shadow-lg">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-2">
             Rakesh ji Bajiya
           </h3>
-          <p className="text-xs md:text-sm text-gray-300 font-sub leading-tight">
+          <p className="text-sm md:text-base text-gray-300 font-sub leading-tight">
             Vice President<br />
             Canvi Premier Kabaddi League<br />
             Chairman<br />
@@ -263,19 +225,19 @@ const AboutPage = () => {
       </div>
 
       {/* Management Member 2 - Vandana Kundu */}
-      <div className="text-center relative">
-        <div className="relative z-0">
+      <div className="text-center relative flex-1 min-w-0">
+        <div className="relative z-0 w-full">
           <img 
             src="./assets/management/2.png" 
             alt="Vandana Kundu" 
-            className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
+            className="w-full h-48 md:h-56 lg:h-64 xl:h-72 object-cover rounded-lg shadow-lg"
           />
         </div>
-        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-8 md:-mt-10 lg:-mt-12 rounded-b-lg shadow-lg">
-          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+        <div className="bg-[#180444] p-4 md:p-5 w-full min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-6 md:-mt-8 lg:-mt-10 rounded-b-lg shadow-lg">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-2">
             Vandana Kundu
           </h3>
-          <p className="text-xs md:text-sm text-gray-300 font-sub leading-tight">
+          <p className="text-sm md:text-base text-gray-300 font-sub leading-tight">
             Management<br />
             Canvi Premier Kabaddi League
           </p>
@@ -283,19 +245,19 @@ const AboutPage = () => {
       </div>
 
       {/* Management Member 3 - Anil Kajla */}
-      <div className="text-center relative">
-        <div className="relative z-0">
+      <div className="text-center relative flex-1 min-w-0">
+        <div className="relative z-0 w-full">
           <img 
             src="./assets/management/3.png" 
             alt="Anil Kajla" 
-            className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
+            className="w-full h-48 md:h-56 lg:h-64 xl:h-72 object-cover rounded-lg shadow-lg"
           />
         </div>
-        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-8 md:-mt-10 lg:-mt-12 rounded-b-lg shadow-lg">
-          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+        <div className="bg-[#180444] p-4 md:p-5 w-full min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-6 md:-mt-8 lg:-mt-10 rounded-b-lg shadow-lg">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-2">
             Anil Kajla
           </h3>
-          <p className="text-xs md:text-sm text-gray-300 font-sub leading-tight">
+          <p className="text-sm md:text-base text-gray-300 font-sub leading-tight">
             Management<br />
             Canvi Premier Kabaddi League
           </p>
@@ -303,19 +265,19 @@ const AboutPage = () => {
       </div>
 
       {/* Management Member 4 - Kuldeep Kaswan */}
-      <div className="text-center relative">
-        <div className="relative z-0">
+      <div className="text-center relative flex-1 min-w-0">
+        <div className="relative z-0 w-full">
           <img 
             src="./assets/management/4.png" 
             alt="Kuldeep Kaswan" 
-            className="w-40 h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 mx-auto object-cover rounded-lg shadow-lg"
+            className="w-full h-48 md:h-56 lg:h-64 xl:h-72 object-cover rounded-lg shadow-lg"
           />
         </div>
-        <div className="bg-[#180444] p-3 md:p-4 w-40 md:w-48 lg:w-56 xl:w-64 mx-auto min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-8 md:-mt-10 lg:-mt-12 rounded-b-lg shadow-lg">
-          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-1">
+        <div className="bg-[#180444] p-4 md:p-5 w-full min-h-[120px] md:min-h-[140px] flex flex-col justify-center relative z-10 -mt-6 md:-mt-8 lg:-mt-10 rounded-b-lg shadow-lg">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-main font-bold text-white mb-2">
             Kuldeep Kaswan
           </h3>
-          <p className="text-xs md:text-sm text-gray-300 font-sub leading-tight">
+          <p className="text-sm md:text-base text-gray-300 font-sub leading-tight">
             Management<br />
             Canvi Premier Kabaddi League
           </p>

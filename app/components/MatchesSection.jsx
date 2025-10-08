@@ -113,40 +113,35 @@ const MatchesSection = () => {
 
   const scrollContainerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const [visibleCards, setVisibleCards] = useState(4);
+  const [cardWidth, setCardWidth] = useState(0);
 
-  // Calculate card width based on screen size and visible cards
+  // Always show 3 cards
+  const visibleCards = 3;
+  const totalPages = Math.ceil(matches.length / visibleCards);
+
+  // Calculate card width based on container width
   useEffect(() => {
-    const checkScreenSize = () => {
-      const width = window.innerWidth;
-      if (width < 640) {
-        setIsMobile(true);
-        setVisibleCards(1); // Show 1 card on mobile
-      } else if (width < 768) {
-        setIsMobile(true);
-        setVisibleCards(2); // Show 2 cards on small tablets
-      } else if (width < 1024) {
-        setIsMobile(false);
-        setVisibleCards(3); // Show 3 cards on tablets
-      } else {
-        setIsMobile(false);
-        setVisibleCards(4); // Show 4 cards on desktop
+    const updateCardWidth = () => {
+      if (scrollContainerRef.current) {
+        const containerWidth = scrollContainerRef.current.offsetWidth;
+        const gap = 16; // gap-4 = 16px
+        const totalGap = gap * (visibleCards - 1);
+        const calculatedWidth = (containerWidth - totalGap) / visibleCards;
+        setCardWidth(calculatedWidth);
       }
     };
 
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
+    updateCardWidth();
+    window.addEventListener('resize', updateCardWidth);
+    return () => window.removeEventListener('resize', updateCardWidth);
   }, []);
 
   const scrollToIndex = (index) => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current;
-      const cardWidth = container.offsetWidth / visibleCards;
-      const scrollPosition = index * cardWidth;
+    if (scrollContainerRef.current && cardWidth > 0) {
+      const gap = 16;
+      const scrollPosition = index * (cardWidth + gap) * visibleCards;
       
-      container.scrollTo({
+      scrollContainerRef.current.scrollTo({
         left: scrollPosition,
         behavior: 'smooth'
       });
@@ -155,45 +150,42 @@ const MatchesSection = () => {
   };
 
   const scrollNext = () => {
-    const maxIndex = Math.ceil(matches.length / visibleCards) - 1;
-    const nextIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+    const nextIndex = (currentIndex + 1) % totalPages;
     scrollToIndex(nextIndex);
   };
 
   const scrollPrev = () => {
-    const maxIndex = Math.ceil(matches.length / visibleCards) - 1;
-    const prevIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+    const prevIndex = (currentIndex - 1 + totalPages) % totalPages;
     scrollToIndex(prevIndex);
   };
 
-  // Calculate total pages
-  const totalPages = Math.ceil(matches.length / visibleCards);
-
   return (
-    <section className="py-0 pt-12 md:pt-20">
+    <section className="w-full py-12 pb-0">
       {/* Section Heading - Outside the background */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-12">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl text-center text-black-90 mb-4" style={{ fontFamily: 'var(--font-jaturat)' }}>
+      <div className="w-full px-4 sm:px-6 lg:px-8 mb-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-main text-black-90 mb-4 md:mb-6 text-center">
           Upcoming Matches
         </h2>
         <div className="w-20 md:w-24 h-1 bg-secondary-light mx-auto"></div>
       </div>
 
-      {/* Background Section - Full width */}
-      <div className="relative bg-cover bg-center bg-no-repeat flex items-center justify-center w-full" style={{ 
+      {/* Background Section - Full width with equal top and bottom padding */}
+      <div className="relative bg-cover bg-center bg-no-repeat w-full" style={{ 
         backgroundImage: "url('./assets/Landing site match schedule bg img.png')",
-        minHeight: isMobile ? '60vh' : '70vh',
         backgroundSize: 'cover',
         backgroundPosition: 'center center'
       }}>
-        <div className="absolute"></div>
-        <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 py-4 md:py-8">
+        <div className="absolute inset-0"></div>
+        
+        {/* Main content container with equal top and bottom padding */}
+        <div className="relative z-10 w-full px-2 sm:px-4 lg:px-8 py-12 md:py-16">
           <div className="flex justify-center w-full">
-            <div className="relative w-full max-w-7xl">
+            <div className="relative w-full">
+              
               {/* Scrolling Container - Full width */}
               <div 
                 ref={scrollContainerRef}
-                className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 px-2 w-full"
+                className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory w-full"
                 style={{ 
                   scrollbarWidth: 'none', 
                   msOverflowStyle: 'none',
@@ -205,8 +197,7 @@ const MatchesSection = () => {
                     key={match.id}
                     className="flex-shrink-0 relative bg-[#29066d] rounded-lg shadow-lg overflow-hidden border-2 border-white snap-center"
                     style={{ 
-                      width: `calc(${100 / visibleCards}% - ${(visibleCards - 1) * 16 / visibleCards}px)`,
-                      minWidth: isMobile ? '280px' : '300px',
+                      width: cardWidth > 0 ? `${cardWidth}px` : '300px',
                       height: 'fit-content'
                     }}
                     initial={{ opacity: 0, y: 20 }}
@@ -215,72 +206,72 @@ const MatchesSection = () => {
                     viewport={{ once: true }}
                   >
                     {/* Pattern on top with heading */}
-                    <div className="h-10 md:h-12 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('./assets/Match-1.png')" }}>
+                    <div className="h-12 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('./assets/Match-1.png')" }}>
                       <h3 className="text-lg md:text-xl text-black font-bold px-2 text-center" style={{ fontFamily: 'var(--font-jaturat)' }}>{match.title}</h3>
                     </div>
                     
                     <div className="p-4 md:p-6">
                       {/* Teams with logos */}
-                      <div className="flex items-center justify-between mb-4 md:mb-6">
+                      <div className="flex items-center justify-between mb-6">
                         <div className="flex flex-col items-center flex-1">
                           <motion.div 
-                            className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center mb-2"
+                            className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-2"
                             whileHover={{ scale: 1.1 }}
                           >
                             <img 
                               src="./assets/Logo CPKL.png" 
                               alt={match.teamA} 
-                              className="w-12 h-12 md:w-16 md:h-16 object-contain"
+                              className="w-16 h-16 object-contain"
                             />
                           </motion.div>
-                          <span className="text-white text-xs md:text-sm font-semibold text-center px-1" style={{ fontFamily: 'var(--font-poppins)' }}>{match.teamA}</span>
+                          <span className="text-white text-sm font-semibold text-center px-1" style={{ fontFamily: 'var(--font-poppins)' }}>{match.teamA}</span>
                         </div>
                         
                         {/* Special VS Design */}
-                        <div className="mx-1 md:mx-2 flex items-center justify-center relative">
+                        <div className="mx-2 flex items-center justify-center relative">
                           <motion.div 
-                            className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-300 relative z-10"
+                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-300 relative z-10"
                             whileHover={{ scale: 1.1 }}
                           >
-                            <span className="text-[#29066d] font-bold text-xs md:text-sm" style={{ fontFamily: 'var(--font-jaturat)' }}>VS</span>
+                            <span className="text-[#29066d] font-bold text-sm" style={{ fontFamily: 'var(--font-jaturat)' }}>VS</span>
                           </motion.div>
                         </div>
                         
                         <div className="flex flex-col items-center flex-1">
                           <motion.div 
-                            className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center mb-2"
+                            className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-2"
                             whileHover={{ scale: 1.1 }}
                           >
                             <img 
                               src="./assets/Logo CPKL.png" 
                               alt={match.teamB} 
-                              className="w-12 h-12 md:w-16 md:h-16 object-contain"
+                              className="w-16 h-16 object-contain"
                             />
                           </motion.div>
-                          <span className="text-white text-xs md:text-sm font-semibold text-center px-1" style={{ fontFamily: 'var(--font-poppins)' }}>{match.teamB}</span>
+                          <span className="text-white text-sm font-semibold text-center px-1" style={{ fontFamily: 'var(--font-poppins)' }}>{match.teamB}</span>
                         </div>
                       </div>
 
                       {/* Match details - Stacked layout */}
-                      <div className="text-center space-y-1 md:space-y-2" style={{ fontFamily: 'var(--font-poppins)' }}>
-                        <div className="text-white font-bold text-sm md:text-lg px-1">
+                      <div className="text-center space-y-2" style={{ fontFamily: 'var(--font-poppins)' }}>
+                        <div className="text-white font-bold text-lg px-1">
                           {match.date}
                         </div>
-                        <div className="text-white text-xs md:text-sm px-1">{match.venue}</div>
+                        <div className="text-white text-sm px-1">{match.venue}</div>
                       </div>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Navigation Buttons - Bottom Center */}
-              <div className="flex justify-center items-center gap-4 mt-6 md:mt-8">
+              {/* Navigation Buttons - Reduced spacing from matches cards */}
+              <div className="flex justify-center items-center gap-6 mt-8">
                 <button 
                   onClick={scrollPrev}
-                  className="bg-white text-[#29066d] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors duration-300 border-2 border-[#29066d]"
-                  aria-label="Previous match"
+                  className="bg-white text-[#29066d] w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors duration-300 border-2 border-[#29066d]"
+                  aria-label="Previous matches"
                 >
-                  <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
@@ -301,25 +292,25 @@ const MatchesSection = () => {
                 
                 <button 
                   onClick={scrollNext}
-                  className="bg-white text-[#29066d] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors duration-300 border-2 border-[#29066d]"
-                  aria-label="Next match"
+                  className="bg-white text-[#29066d] w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors duration-300 border-2 border-[#29066d]"
+                  aria-label="Next matches"
                 >
-                  <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
               </div>
-
-              {/* Hide scrollbar for webkit browsers */}
-              <style jsx>{`
-                .scrollbar-hide::-webkit-scrollbar {
-                  display: none;
-                }
-              `}</style>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Hide scrollbar for webkit browsers */}
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 }

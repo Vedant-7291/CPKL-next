@@ -39,7 +39,7 @@ const PointsTablePage = () => {
     
     {/* Content with left positioning */}
     <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
-      <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary font-bold font-galantic absolute left-[20%]">
+      <h1 className="text-3xl md:text-6xl lg:text-8xl text-primary font-bold font-galantic absolute left-[15%]">
         STANDINGS
       </h1>
     </div>
@@ -75,10 +75,10 @@ const PointsTablePage = () => {
 
           {/* New Heading Line and CTA Button */}
           <div className="mt-12 mb-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#180444] mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-main text-black-90 mb-4 md:mb-6">
               Who Rules the Court? Follow the Action Live.
             </h2>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
+            <button className="bg-[#29066d] hover:bg-[#180444] text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
               View Live Stats
             </button>
           </div>

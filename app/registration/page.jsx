@@ -17,7 +17,7 @@ const RegistrationPage = () => {
     
     {/* Content with left positioning */}
     <div className="absolute inset-0 z-10 flex items-center transform -translate-y-8">
-      <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-primary font-bold font-galantic absolute left-[20%]">
+      <h1 className="text-3xl md:text-6xl lg:text-8xl text-primary font-bold font-galantic absolute left-[15%]">
         REGISTRATION
       </h1>
     </div>

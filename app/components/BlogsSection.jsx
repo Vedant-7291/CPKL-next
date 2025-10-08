@@ -4,7 +4,7 @@ const BlogsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl text-black-90 mb-4 font-jaturat" >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-main text-black-90 mb-4 md:mb-6 " >
               Our Blogs
             </h2>
             <div className="w-24 h-1 bg-secondary-light"></div>

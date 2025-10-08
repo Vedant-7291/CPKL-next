@@ -110,7 +110,7 @@ const TeamsSection = () => {
       <div className="relative py-6 md:py-12 lg:py-16 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('./assets/team-bg.png')" }}>
         {/* Section Heading */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 md:mb-10 lg:mb-12">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl text-center text-black mb-3 md:mb-4" style={{ fontFamily: 'var(--font-jaturat)' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-main text-black-90 mb-4 md:mb-6 text-center">
             Our Teams
           </h2>
           <div className="w-16 md:w-20 lg:w-24 h-1 bg-secondary-light mx-auto"></div>

@@ -1,48 +1,74 @@
-const IconPlayerSection = () => {
+'use client';
+const PartnersSection = () => {
+  // Partner data with image sources
+  const broadcastingPartners = [
+    { id: 1, name: "Broadcast Partner 1", logo: "/assets/partners/Official partner2.png" },
+    { id: 2, name: "Broadcast Partner 2", logo: "/assets/partners/Official partner.png" }
+  ];
+
+  const otherPartners = [
+    { id: 1, name: "League Organisers", logo: "/assets/partners/League organiser.png" },
+    { id: 2, name: "Media & Marketing Partners", logo: "/assets/partners/media and marketing partner.png" },
+    { id: 3, name: "Kit Partner", logo: "/assets/partners/kit partner.png" }
+  ];
+
   return (
-    <section className="py-16 bg-[#180444]">
+    <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* CPKL Icon Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-jaturat text-white font-bold">
-            CPKL ICON
-          </h2>
-        </div>
-
-        {/* Main White Container */}
-        <div className="bg-white rounded-lg shadow-2xl p-6 md:p-8 lg:p-10 min-h-[500px] lg:min-h-[600px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 h-full">
-            {/* Left Content */}
-            <div className="flex flex-col justify-center">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-jaturat mb-4 text-gray-800">
-                Pardeep Narwal
-              </h2>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-jaturat mb-6 text-[#29066d]">
-                - The Dubki King Returns
-              </h3>
-              <div className="space-y-4 md:space-y-6">
-                <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed font-poppins">
-                  Every sport has an icon who changes the way the game is played. For kabaddi, that icon is Pardeep Narwal. Known across the world as the Dubki King, Pardeep has not only broken records but has also redefined what it means to be a raider.
-                </p>
-                <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed font-poppins">
-                  The roar just got louder. Pardeep Narwal will now bring his unmatched skill and superstar aura to the Canvi Premier Kabaddi League Season 2. Pardeep isn't just here to play. He's here to inspire the next generation, to prove that kabaddi is India's gift to the world, and to remind everyone why he is still the most feared raider of all time.
-                </p>
-                <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed font-poppins">
-                  Now, he's ready to light up CPKL Season 2 in Dubai. Fans will see his fearless raids, iconic moves, and unmatched energy as he takes the mat with the league's best.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Content - Larger Image */}
-            <div className="flex justify-center lg:justify-end items-center">
-              <div className="w-full max-w-[350px] lg:max-w-[450px] xl:max-w-[500px] h-[450px] md:h-[500px] lg:h-[550px] rounded-lg overflow-hidden">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black-90 text-center mb-12 font-main">Our Partners</h2>
+        
+        {/* Official Broadcasting Partners - 2 logos */}
+        <div className="mb-16">
+          <h3 className="text-xl text-gray-600 text-center mb-8">Official Broadcasting Partners</h3>
+          <div className="flex flex-wrap justify-center gap-12">
+            {broadcastingPartners.map((partner) => (
+              <div key={partner.id} className="flex items-center justify-center h-32 w-48">
+                {/* Image with fallback text */}
                 <img 
-                  src="./assets/icon.png" 
-                  alt="Pradeep Narwal - The Dubki King" 
-                  className="w-full h-full object-fill rounded-lg"
+                  src={partner.logo} 
+                  alt={partner.name}
+                  className="h-full w-full object-contain"
+                  onError={(e) => {
+                    // Fallback if image fails to load
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'block';
+                  }}
                 />
+                <div className="text-gray-400 font-semibold text-center hidden">
+                  {partner.name}
+                </div>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Other Partners - 3 logos with individual titles */}
+        <div>
+          <div className="flex flex-wrap justify-center gap-12">
+            {otherPartners.map((partner) => (
+              <div key={partner.id} className="flex flex-col items-center">
+                {/* Logo */}
+                <div className="flex items-center justify-center h-32 w-48 mb-3">
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="h-full w-full object-contain"
+                    onError={(e) => {
+                      // Fallback if image fails to load
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'block';
+                    }}
+                  />
+                  <div className="text-gray-400 font-semibold text-center hidden">
+                    {partner.name}
+                  </div>
+                </div>
+                {/* Partner Name as Title */}
+                <h4 className="text-sm text-black text-center font-medium">
+                  {partner.name}
+                </h4>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -50,4 +76,4 @@ const IconPlayerSection = () => {
   )
 }
 
-export default IconPlayerSection
+export default PartnersSection
